@@ -15,7 +15,7 @@ class ConfPlugin
 
     public function __construct()
     {
-        bloginfo('htps://www.youtube.com/');
+      
         add_action('admin_menu', array($this, 'top_menu'));
         $this->include_libs();
         $this->init_subplugins();
@@ -50,6 +50,9 @@ class ConfPlugin
 
     private function init_subplugins()
     {
+        require_once(CONFERENCE__PLUGIN_DIR . 'settings/settings.php');
+        $this->$confSettings = new ConfSettings();
+
         if(get_option('conf_notifier')) {
             require_once(CONFERENCE__PLUGIN_DIR . 'notifier/notifier.php');
             $this->$confMail = new ConfNotifier();
@@ -58,8 +61,9 @@ class ConfPlugin
         require_once(CONFERENCE__PLUGIN_DIR . 'stats/stats.php');
         $this->$confStats = new ConfStats();
 
-        require_once(CONFERENCE__PLUGIN_DIR . 'settings/settings.php');
-        $this->$confSettings = new ConfSettings();
+       
+        require_once(CONFERENCE__PLUGIN_DIR . 'post_types/post_types.php');
+        $this->$confPostTypes = new ConfPostTypes();
     }
     
 }

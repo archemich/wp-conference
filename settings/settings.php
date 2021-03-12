@@ -32,6 +32,7 @@ class ConfSettings
 
             <form method="post" action="">
                 <input type="checkbox" name="notifier" id="" <?php if(get_option('conf_notifier')) echo('checked')?>> Включить уведомление
+
                 <input type="submit" name="save_settings" value="Сохранить изменения">
             </form>
             <?php if(isset($_POST['saved'])) {?> <h3>Изменения сохранены</h3> <?php } ?>
@@ -43,10 +44,8 @@ class ConfSettings
     public function save_settings()
     {
         if(isset($_POST['save_settings'])){
-            if($_POST['notifier'])
-                update_option('conf_notifier', true);
-            else
-                update_option('conf_notifier', false);
+            if($_POST['notifier']) update_option('conf_notifier', true);
+            else update_option('conf_notifier', false);
             $_POST['saved'] = true;
         }
 

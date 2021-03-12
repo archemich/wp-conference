@@ -40,17 +40,13 @@ class ConfStats
                 <input type="submit" name="export_applications" value="Скачать заявки">
             </form>
             <form method="post" action="" name="report" class="stats_form">
-                <input type="text">
-                <input type="checkbox" name="" id="">
+            
                 <input type="submit" name="export_reports" value="Скачать доклады">
             </form>
         </div> 
         <?php
     }
 
-    public function setup_scripts()
-    {
-    }
 
     public function export_excel()
     {
