@@ -44,9 +44,9 @@ class ConfSettings
     {
         if(isset($_POST['save_settings'])){
             if($_POST['notifier'])
-                update_option('notifier', true);
+                update_option('conf_notifier', true);
             else
-                update_option('notifier', false);
+                update_option('conf_notifier', false);
             $_POST['saved'] = true;
         }
 
