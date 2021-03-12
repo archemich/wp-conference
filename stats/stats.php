@@ -12,6 +12,7 @@ class ConfStats
     {
         add_action('init', array($this, 'export_excel'));
         add_action('admin_menu', array($this,'top_submenu'));
+        
         wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
 
 
@@ -39,6 +40,8 @@ class ConfStats
                 <input type="submit" name="export_applications" value="Скачать заявки">
             </form>
             <form method="post" action="" name="report" class="stats_form">
+                <input type="text">
+                <input type="checkbox" name="" id="">
                 <input type="submit" name="export_reports" value="Скачать доклады">
             </form>
         </div> 
