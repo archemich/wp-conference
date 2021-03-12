@@ -31,7 +31,11 @@ class ConfSettings
             <h1>Conference settings</h1>
 
             <form method="post" action="">
+<<<<<<< HEAD
                 <input type="checkbox" name="notifier" id="" <?php if(get_option('conf_notifier')) echo('checked')?>> Включить уведомление
+=======
+                <input type="checkbox" name="notifier" id="" <?php if(get_option('notifier')) echo('checked')?>> Включить уведомление
+>>>>>>> b6957e39d902755aaf67729d880419c8980788fa
                 <input type="submit" name="save_settings" value="Сохранить изменения">
             </form>
             <?php if(isset($_POST['saved'])) {?> <h3>Изменения сохранены</h3> <?php } ?>
@@ -43,10 +47,17 @@ class ConfSettings
     public function save_settings()
     {
         if(isset($_POST['save_settings'])){
+<<<<<<< HEAD
             if($_POST['conf_notifier'])
                 update_option('conf_notifier', true);
             else
                 update_option('conf_notifier', false);
+=======
+            if($_POST['notifier'])
+                update_option('notifier', true);
+            else
+                update_option('notifier', false);
+>>>>>>> b6957e39d902755aaf67729d880419c8980788fa
             $_POST['saved'] = true;
         }
 
