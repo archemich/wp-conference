@@ -1,6 +1,6 @@
 <?php
 
-class ConfNotificator
+class ConfNotifier
 {
     public function __construct()
     {

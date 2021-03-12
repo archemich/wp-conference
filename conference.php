@@ -50,9 +50,9 @@ class ConfPlugin
 
     private function init_subplugins()
     {
-        if(get_option('notificator')) {
-            require_once(CONFERENCE__PLUGIN_DIR . 'notificator/notificator.php');
-            $this->$confMail = new ConfNotificator();
+        if(get_option('notifier')) {
+            require_once(CONFERENCE__PLUGIN_DIR . 'notifier/notifier.php');
+            $this->$confMail = new ConfNotifier();
         }
 
         require_once(CONFERENCE__PLUGIN_DIR . 'stats/stats.php');

@@ -4,7 +4,7 @@ class ConfSettings
 {
     public function __construct()
     {
-        add_option('notificator');
+        add_option('notifier');
         add_action('admin_init', array($this, 'save_settings'));
         add_action('admin_menu', array($this,'top_submenu'));
         
@@ -31,7 +31,7 @@ class ConfSettings
             <h1>Conference settings</h1>
 
             <form method="post" action="">
-                <input type="checkbox" name="notificator" id="" <?php if(get_option('notificator')) echo('checked')?>> Включить уведомление
+                <input type="checkbox" name="notifier" id="" <?php if(get_option('notifier')) echo('checked')?>> Включить уведомление
                 <input type="submit" name="save_settings" value="Сохранить изменения">
             </form>
             <?php if(isset($_POST['saved'])) {?> <h3>Изменения сохранены</h3> <?php } ?>
@@ -43,10 +43,10 @@ class ConfSettings
     public function save_settings()
     {
         if(isset($_POST['save_settings'])){
-            if($_POST['notificator'])
-                update_option('notificator', true);
+            if($_POST['notifier'])
+                update_option('notifier', true);
             else
-                update_option('notificator', false);
+                update_option('notifier', false);
             $_POST['saved'] = true;
         }
 
