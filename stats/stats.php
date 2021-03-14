@@ -68,7 +68,7 @@ class ConfStats
             }
 
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment;filename="conf_users.xlsx"');
+            header('Content-Disposition: attachment;filename="conf_users'.date('d-m-y').'.xlsx"');
             header('Cache-Control: max-age=0');
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save('php://output');
@@ -80,12 +80,8 @@ class ConfStats
         if(isset($_POST['export_applications']))
         {
             global $wpdb;
-            $tempdir = 'applications';
-            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
-            if(is_dir($tempdir_path)) {
-                removeDir($tempdir_path);
-            }
-            @mkdir($tempdir_path);
+           
+            
             $applications = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "application";');
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
@@ -131,8 +127,11 @@ class ConfStats
                 $row_index++;
                 }
 
-            $writer = IOFactory::createWriter($doc, 'Xlsx');
-            $writer->save($tempdir_path.'/applications.xlsx');
+                header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+                header('Content-Disposition: attachment;filename="conf_applications'.date('d-m-y').'.xlsx"');
+                header('Cache-Control: max-age=0');
+                $writer = IOFactory::createWriter($doc, 'Xlsx');
+                $writer->save('php://output');
         }
     }
 
