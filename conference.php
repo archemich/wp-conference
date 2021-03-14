@@ -65,7 +65,23 @@ class ConfPlugin
         require_once(CONFERENCE__PLUGIN_DIR . 'post_types/post_types.php');
         $this->$confPostTypes = new ConfPostTypes();
     }
+
     
 }
+
+
+function removeDir($target)
+    {
+        $directory = new RecursiveDirectoryIterator($target,  FilesystemIterator::SKIP_DOTS);
+        $files = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                rmdir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($target);
+    }
 
 $plugin = new ConfPlugin();

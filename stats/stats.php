@@ -10,7 +10,9 @@ class ConfStats
 
     public function __construct()
     {
-        add_action('init', array($this, 'export_excel'));
+        add_action('init', array($this, 'export_users'));
+        add_action('init', array($this, 'export_applications'));
+        add_action('init', array($this, 'export_reports'));
         add_action('admin_menu', array($this,'top_submenu'));
         
         wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
@@ -48,7 +50,7 @@ class ConfStats
     }
 
 
-    public function export_excel()
+    public function export_users()
     {
         if(isset($_POST['export_users'])){
             global $wpdb;
@@ -70,7 +72,97 @@ class ConfStats
             header('Cache-Control: max-age=0');
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save('php://output');
-            exit;
+        }
+    }
+
+    public function export_applications()
+    {
+        if(isset($_POST['export_applications']))
+        {
+            global $wpdb;
+            $tempdir = 'applications';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDD ";
+            $applications = $wpdb->get_results('SELECT id, post_title FROM wp_posts WHERE post_type = "application";');
+            foreach ($applications as $application) {
+                print_r(get_post_meta($application->id));
+            }
+        }
+    }
+
+
+    public function export_reports()
+    {
+        if(isset($_POST['export_reports']))
+        {
+            global $wpdb;
+            $tempdir = 'reports';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+
+            $doc = new Spreadsheet();
+            $active_sheet = $doc->getActiveSheet();
+            $active_sheet->setTitle("Users");
+            $active_sheet->setCellValue('A1', 'Конференция');
+            $active_sheet->setCellValue('B1', 'Направление работы');
+            $active_sheet->setCellValue('C1', 'Автор');
+            $active_sheet->setCellValue('D1', 'Название доклада');
+            $active_sheet->setCellValue('E1', 'Организация аббревиатура');
+            $active_sheet->setCellValue('F1', 'Город');
+            $active_sheet->setCellValue('G1', 'Статус');
+            $row_index = 2;
+
+            @mkdir($tempdir_path);
+            $reports = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "report";');
+            foreach($reports as $report) {
+                $pdf_path = wp_upload_dir()['basedir'] .'/'. $report->pdf_path;
+                $user = get_userdata($report->post_author);
+                $usermeta = get_user_meta($user->id);
+            
+                $postmeta = get_post_meta($report->id);
+                $post_title = str_replace(' ','_',$report->post_title);
+                $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
+                $ext = pathinfo($pdf_path)['extension'];
+                copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext);
+                $active_sheet->setCellValue('A'.$row_index, $postmeta['lokalnaya_conferencia'][0]);
+                $active_sheet->setCellValue('B'.$row_index, $postmeta['napravlenie'][0]);
+                $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name. ' ' . $usermeta['otchestvo'][0]);
+                $active_sheet->setCellValue('D'.$row_index, $report->post_title);
+                $active_sheet->setCellValue('E'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
+                $active_sheet->setCellValue('F'.$row_index, $usermeta['gorod'][0]);
+                if ($report->post_status == 'publish')
+                    $active_sheet->setCellValue('G'.$row_index, 'Принят');
+                else if ($report->post_status == 'pending')
+                    $active_sheet->setCellValue('G'.$row_index, 'На модерации');
+                $row_index++;
+                }
+
+            $writer = IOFactory::createWriter($doc, 'Xlsx');
+            $writer->save($tempdir_path.'/reports.xlsx');
+            
+            
+            
+            
+           
+
+            // header("Pragma: public");
+            // header("Expires: 0");
+            // header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+            // header("Cache-Control: public");
+            // header("Content-Description: File Transfer");
+            // header("Content-type: application/zip");
+            // header("Content-Disposition: attachment; filename=".$zipname);
+            // header("Content-Transfer-Encoding: binary");
+            // header("Content-Length: ".filesize($zippath));
+            // @readfile($zippath);
+
         }
     }
 }
+
