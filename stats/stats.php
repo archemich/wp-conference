@@ -86,11 +86,53 @@ class ConfStats
                 removeDir($tempdir_path);
             }
             @mkdir($tempdir_path);
-            echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDD ";
-            $applications = $wpdb->get_results('SELECT id, post_title FROM wp_posts WHERE post_type = "application";');
-            foreach ($applications as $application) {
-                print_r(get_post_meta($application->id));
-            }
+            $applications = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "application";');
+            $doc = new Spreadsheet();
+            $active_sheet = $doc->getActiveSheet();
+            $active_sheet->setTitle("Users");
+            $active_sheet->setCellValue('A1', 'Фамилия');
+            $active_sheet->setCellValue('B1', 'Имя');
+            $active_sheet->setCellValue('C1', 'Отчество');
+            $active_sheet->setCellValue('D1', 'Дата рождения');
+            $active_sheet->setCellValue('E1', 'Город');
+            $active_sheet->setCellValue('F1', 'Основное место работы');
+            $active_sheet->setCellValue('G1', 'Основное место работы (Аббревиатура)');
+            $active_sheet->setCellValue('H1', 'Должность');
+            $active_sheet->setCellValue('I1', 'Ученая степень');
+            $active_sheet->setCellValue('J1', 'Ученое звание');
+            $active_sheet->setCellValue('K1', 'Телефон рабочий');
+            $active_sheet->setCellValue('L1', 'Телефон для связи на конференции');
+            $active_sheet->setCellValue('M1', 'E-Mail');
+            $active_sheet->setCellValue('N1', 'Форма участия');
+            $active_sheet->setCellValue('O1', 'Хочет получить печатное издание');
+            $active_sheet->setCellValue('P1', 'Ознакомлен с пользовательским соглашением');
+            $row_index = 2;
+
+            foreach($applications as $application) {
+                $user = get_userdata($application->post_author);
+                $usermeta = get_user_meta($user->id);
+                $active_sheet->setCellValue('A'.$row_index, $user->last_name);
+                $active_sheet->setCellValue('B'.$row_index, $user->first_name);
+                $active_sheet->setCellValue('C'.$row_index, $usermeta['otchestvo'][0]);
+                $active_sheet->setCellValue('D'.$row_index, $usermeta['data_rozhdenia'][0]);
+                $active_sheet->setCellValue('E'.$row_index, $usermeta['gorod'][0]);
+                $active_sheet->setCellValue('F'.$row_index, $usermeta['organizaciya'][0]);
+                $active_sheet->setCellValue('G'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
+                $active_sheet->setCellValue('H'.$row_index, $usermeta['dolzhnost'][0]);
+                $active_sheet->setCellValue('I'.$row_index, $usermeta['uchenaya_stepen'][0]);
+                $active_sheet->setCellValue('J'.$row_index, $usermeta['uchenoe_zvanie'][0]);
+                $active_sheet->setCellValue('K'.$row_index, $usermeta['telephon_rabochiy'][0]);
+                $active_sheet->setCellValue('L'.$row_index, $usermeta['telephon_conferencia'][0]);
+                $active_sheet->setCellValue('M'.$row_index, $usermeta['email'][0]);
+                $active_sheet->setCellValue('N'.$row_index, $usermeta['forma_uchastia'][0]);
+                $active_sheet->setCellValue('O'.$row_index, $usermeta['pechatnoe_izdanie'][0]);
+                $active_sheet->setCellValue('P'.$row_index, $usermeta['soglashenie'][0]);
+            
+                $row_index++;
+                }
+
+            $writer = IOFactory::createWriter($doc, 'Xlsx');
+            $writer->save($tempdir_path.'/applications.xlsx');
         }
     }
 
