@@ -4,6 +4,7 @@ class confPostTypes
 {
     public function __construct()
     {
+        add_action('init', array($this, 'register_taxonomies'));
         add_action('init', array($this,'register_post_types'));
     }
 
@@ -52,6 +53,31 @@ class confPostTypes
             'exclude_from_search'   => true,
             'show_in_admin_bar'     => true,
 
+        ]);
+
+        
+    }
+
+
+    public function register_taxonomies()
+    {
+        register_taxonomy('subject','report', [
+            'labels' => [
+                'name'              => 'Направления',
+                'singular_name'     => 'Направление',
+                'all_items'         => 'Все направления',
+                'view_item'         => 'Посмотреть направление',
+                'parent_item'       => 'Родительское направление',
+                'parent_item_colon'       => 'Родительское направление:',
+                'edit_item'         => 'Изменить направление',
+                'update_item'       => 'Обновить направление',
+                'add_new_item'      => 'Добавить новое направление',
+                'new_item_name'     => 'Новое имя направления',
+                'menu_name'         => 'Направления'
+            ],
+            'public'            =>  true,
+            'hierarchical'      => true,
+            'publicy_queryable' => false,
         ]);
     }
 }
