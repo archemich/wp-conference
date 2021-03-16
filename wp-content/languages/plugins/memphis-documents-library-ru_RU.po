@@ -1,0 +1,2166 @@
+# Translation of Plugins - Memphis Documents Library - Stable (latest release) in Russian
+# This file is distributed under the same license as the Plugins - Memphis Documents Library - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-07-26 11:02:06+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Memphis Documents Library - Stable (latest release)\n"
+
+#: includes/mdocs-widgets.php:63 includes/mdocs-widgets.php:129
+#: includes/mdocs-widgets.php:189
+msgid "Show All File"
+msgstr "Отображать все файлы"
+
+#: includes/mdocs-restore-defaults.php:16
+msgid "Keep all files, post, and categories."
+msgstr "Сохранить все файлы, записи и рубрики."
+
+#: includes/mdocs-restore-defaults.php:10
+msgid "This will return Memphis Documents Library to its default install state.  All your files, post, and categories will not be remove and all setting will return to their default state.  You can delete everything if you uncheck the \"Keep all files, post, and categories.\" checkbox.  <em>Please backup your files before continuing.</em>"
+msgstr "Это вернёт Memphis Documents Library к стандартным настройкам. Все ваши файлы, записи, и рубрики не будут удаленны и все настройки вернутся в первоначальное состояние. Вы можете удалить всё, если деактивируете опцию «Сохранить все файлы, записи и рубрики». <em>Пожалуйста, делайте резервную копию перед тем как продолжить</em>."
+
+#: includes/mdocs-settings-page.php:426
+msgid "Hide Widget Column Titles"
+msgstr "Скрыть заголовки столбцов виджета"
+
+#: includes/mdocs-settings-page.php:352
+msgid "Default Value"
+msgstr "Стандартное значение"
+
+#: includes/mdocs-settings-page.php:351
+msgid "Disabled in Upload Form"
+msgstr "Отключено в форме загрузки"
+
+#: includes/mdocs-settings-page.php:350
+msgid "Show in Upload Form"
+msgstr "Отображать в форме загрузки"
+
+#: includes/mdocs-settings-page.php:348
+msgid "Show in Table"
+msgstr "Отображать в таблице"
+
+#: includes/mdocs-settings-page.php:347
+msgid "Width in %"
+msgstr "Ширина в %"
+
+#: includes/mdocs-settings-page.php:345
+msgid "Column Type"
+msgstr "Тип столбца"
+
+#: gutenberg/mdocs-example.js:448
+msgid "mDocs Files"
+msgstr "Файлы mDocs"
+
+#: gutenberg/mdocs-example.js:407
+msgid "Allows you to add a Memphis Documents Library file to a post or page."
+msgstr "Позволяет встраивать файл Memphis Documents Library в запись или страницу."
+
+#: gutenberg/mdocs-example.js:256
+msgid "Write a brief bio..."
+msgstr "Напишите немного о себе..."
+
+#: gutenberg/mdocs-example.js:246
+msgid "Subtitle"
+msgstr "Подзаголовок"
+
+#: gutenberg/mdocs-example.js:228
+msgid "Upload Image"
+msgstr "Загрузка изображения"
+
+#: gutenberg/mdocs-example.js:207
+msgid "Email Address"
+msgstr "Email-адрес"
+
+#: gutenberg/mdocs-example.js:198
+msgid "LinkedIn URL"
+msgstr "LinkedIn URL"
+
+#: gutenberg/mdocs-example.js:189
+msgid "Instagram URL"
+msgstr "Instagram URL"
+
+#: gutenberg/mdocs-example.js:180
+msgid "Twitter URL"
+msgstr "Twitter URL"
+
+#: gutenberg/mdocs-example.js:171
+msgid "Facebook URL"
+msgstr "Facebook URL"
+
+#: gutenberg/mdocs-example.js:160
+msgid "Two columns"
+msgstr "Два столбца"
+
+#: gutenberg/mdocs-example.js:159
+msgid "One column"
+msgstr "Один столбец"
+
+#: gutenberg/mdocs-example.js:155
+msgid "Number of Columns"
+msgstr "Количество столбцов"
+
+#: gutenberg/mdocs-example.js:146 gutenberg/mdocs-example.js:454
+msgid "File Two"
+msgstr "Второй файл"
+
+#: gutenberg/mdocs-example.js:145 gutenberg/mdocs-example.js:453
+msgid "File One"
+msgstr "Первый файл"
+
+#: gutenberg/mdocs-example.js:140
+msgid "Test of Radio"
+msgstr "Тест радио"
+
+#: gutenberg/mdocs-example.js:132
+msgid "Add links to your social media profiles."
+msgstr "Добавьте ссылки на свои профили в соцсетях."
+
+#: gutenberg/mdocs-example.js:128
+msgid "Social Media Links"
+msgstr "Соцсети"
+
+#: gutenberg/mdocs-example.js:15
+msgid "A custom block for displaying personal profiles."
+msgstr "Пользовательский блок для отображения персональных профилей."
+
+#: gutenberg/mdocs-example.js:14 gutenberg/mdocs-example.js:406
+msgid "mDocs File"
+msgstr "Файл mDocs"
+
+#: gutenberg/mdocs-add-file-block.js:50 gutenberg/mdocs-example.js:444
+msgid "Select the file you want to insert."
+msgstr "Выберите файл, который желаете вставить."
+
+#: includes/mdocs-localization.php:243
+msgid "File Type"
+msgstr "Тип файла"
+
+#: includes/mdocs-upload.php:585
+msgid "real author"
+msgstr "настоящий автор"
+
+#: includes/mdocs-settings-page.php:342
+msgid "Document List Configuration"
+msgstr "Конфигурация списка документов"
+
+#: includes/mdocs-settings-page.php:342
+msgid "Controls the style of the document list table"
+msgstr "Управляет стилем таблицы списков документов"
+
+#: includes/mdocs-shortcodes.php:42
+msgid "This still works but you are better off using the \"Add mDocs File\" button, found at the top of the page editor."
+msgstr "Еще в работе, но лучше использовать кнопку «Добавить файл mDocs», находящуюся в верхней части редактора страницы"
+
+#: includes/mdocs-shortcodes.php:34 includes/mdocs-shortcodes.php:38
+msgid "This still works but you are better off using the \"Add mDocs Folder\" button, found at the top of the page editor."
+msgstr "Еще в работе, но лучше использовать кнопку «Добавить папку mDocs», расположенную в верхней части редактора страниц"
+
+#: includes/mdocs-shortcodes.php:63 includes/mdocs-shortcodes.php:86
+#: includes/mdocs-shortcodes.php:95 includes/mdocs-shortcodes.php:103
+#: includes/mdocs-shortcodes.php:128
+msgid "Insert Short Code"
+msgstr "Вставить шорткод"
+
+#: includes/mdocs-shortcodes.php:96 includes/mdocs-shortcodes.php:119
+msgid "Select a file"
+msgstr "Выбрать файл"
+
+#: includes/mdocs-shortcodes.php:115
+msgid "Add Upload Button"
+msgstr "Добавить кнопку \"Загрузить\""
+
+#: includes/mdocs-shortcodes.php:109
+msgid "Add mDocs Upload Button"
+msgstr "Добавить кнопку \"Загрузить mDocs\""
+
+#: includes/mdocs-localization.php:42
+msgid "Add mDocs File"
+msgstr "Добавить файл mDocs"
+
+#: includes/mdocs-localization.php:41 includes/mdocs-shortcodes.php:59
+#: includes/mdocs-shortcodes.php:90
+msgid "Add mDocs Folder"
+msgstr "Добавить папку mDocs"
+
+#: includes/mdocs-settings-page.php:86
+msgid "Box View Options"
+msgstr "Опции просмотра окна"
+
+#: includes/mdocs-settings-page.php:427
+msgid "Hide Widget Numbers"
+msgstr "Скрыть номера виджетов"
+
+#: includes/mdocs-settings-page.php:87
+msgid "Show Print and Download Buttons"
+msgstr "Показать кнопки \"Печать\" и \"Загрузить\""
+
+#: includes/mdocs-shortcodes.php:46
+msgid "For more details on options for this button please check out"
+msgstr "Для подробностей об опциях для этой кнопки посмотрите"
+
+#: includes/mdocs-upload.php:239
+msgid "Upload File"
+msgstr "Загрузить файл"
+
+#: includes/mdocs-upload.php:578
+msgid "version"
+msgstr "версия"
+
+#: includes/mdocs-upload.php:577
+msgid "folder"
+msgstr "папка"
+
+#: includes/mdocs-upload.php:580
+msgid "file status"
+msgstr "статус файла"
+
+#: includes/mdocs-upload.php:579
+msgid "date"
+msgstr "дата"
+
+#: includes/mdocs-localization.php:248
+msgid "Allow to Upload Frontend"
+msgstr "Разрешить загрузку с сайта"
+
+#: includes/mdocs-localization.php:245
+msgid "Allow to Batch Edit"
+msgstr "Разрешить пакетное редактирование"
+
+#: includes/mdocs-upload.php:588
+msgid "description"
+msgstr "описание"
+
+#: includes/mdocs-upload.php:586
+msgid "tags"
+msgstr "метки"
+
+#: includes/mdocs-upload.php:584
+msgid "contributors"
+msgstr "авторы"
+
+#: includes/mdocs-upload.php:583
+msgid "downloadable by non members"
+msgstr "загружаемый не участниками"
+
+#: includes/mdocs-localization.php:247
+msgid "Allow to Batch Delete"
+msgstr "Разрешить пакетное удаление"
+
+#: includes/mdocs-localization.php:246
+msgid "Allow to Batch Move"
+msgstr "Разрешить пакетное перемещение"
+
+#: includes/mdocs-upload.php:581
+msgid "post status"
+msgstr "статус публикации"
+
+#: includes/mdocs-localization.php:230
+msgid "Manage Options"
+msgstr "Управление параметрами"
+
+#: includes/mdocs-localization.php:232
+msgid "View Private Posts and Pages"
+msgstr "Просмотр личных сообщений и страниц"
+
+#: includes/mdocs-localization.php:229
+msgid "Manage Settings"
+msgstr "Управление настройками"
+
+#: includes/mdocs-localization.php:231
+msgid "Allow to Upload"
+msgstr "Разрешить загрузку"
+
+#: includes/mdocs-settings-page.php:115
+msgid "Roles and Capabilities"
+msgstr "Роли и возможности"
+
+#: includes/mdocs-settings-page.php:242
+msgid "Hide the Footer of the Documents List"
+msgstr "Скрыть нижний колонтитул списка документов"
+
+#: includes/mdocs-find-lost-files.php:31 includes/mdocs-batch-upload.php:87
+#: includes/mdocs-batch-file-methods.php:173
+#: includes/mdocs-batch-file-methods.php:231
+msgid "Filename"
+msgstr "Имя файла"
+
+#: includes/mdocs-doc-preview.php:371
+msgid "Versions are not available for this file."
+msgstr "Версии недоступны для этого файла."
+
+#: includes/mdocs-doc-preview.php:276
+msgid "Description is not available for this file."
+msgstr "Описание недоступно для этого файла."
+
+#: includes/mdocs-settings-page.php:85
+msgid "Creating a Box API Developer Key for Memphis Documents Library."
+msgstr "Создание Box API Developer Key для Memphis Documents Library."
+
+#: includes/mdocs-settings-page.php:81
+msgid "To get a Box developers key please click the link below and create an account."
+msgstr "Для получения Box developers key перейдите по ссылке ниже и создайте аккаунт."
+
+#: includes/mdocs-settings-page.php:81
+msgid "A Box development key is needed to use Box document preview."
+msgstr "Box development key необходим для использования Box document preview."
+
+#: includes/mdocs-settings-page.php:80
+msgid "Local preview allows you to preview PDF, Image files, and ZIP files only, if you are looking for capabilities try using Box View."
+msgstr "Локальный предпросмотр работает только с файлами PDF, изображениями, и ZIPфайлами, если Вам нужны дополнительные возможности, попробуйте использовать Box View."
+
+#: includes/mdocs-localization.php:128
+msgid "is not supported by Box preview."
+msgstr "не поддерживается Box preview."
+
+#: includes/mdocs-file-info-small.php:38
+msgid "All Post are Hidden "
+msgstr "Все записи скрыты"
+
+#: includes/mdocs-doc-preview.php:143
+msgid "Below is a list of currently supported file types"
+msgstr "Ниже перечислены поддерживаемые форматы файлов"
+
+#: includes/mdocs-doc-preview.php:141
+msgid "Sorry the file type you are trying to preview is unsupported."
+msgstr "Извините, предпросмотр данного типа файла не поддерживается."
+
+#: includes/mdocs-doc-preview.php:100
+msgid "Zip File Content"
+msgstr "Содержимое zip-файла"
+
+#: includes/mdocs-doc-preview.php:65
+msgid "Status"
+msgstr "Статус"
+
+#: includes/mdocs-upload.php:388
+msgid "Private - [ Only you can view this file ]"
+msgstr "Приватный - Только Вы будете видеть этот файл"
+
+#: includes/mdocs-upload.php:387
+msgid "Public - [ Everyone can view this file ]"
+msgstr "Публичный - Все будут видеть этот файл"
+
+#: includes/mdocs-settings-page.php:177
+msgid "Style Configuration"
+msgstr "Конфигурация стилей"
+
+#: includes/mdocs-settings-page.php:198
+msgid "Highlight Color Updated Normal"
+msgstr "Цвет подсветки обновленных"
+
+#: includes/mdocs-settings-page.php:195
+msgid "Highlight Color New Hover"
+msgstr "Цвет подсветки новых при наведении"
+
+#: includes/mdocs-settings-page.php:193
+msgid "Highlight Color New Normal"
+msgstr "Цвет подсветки новых"
+
+#: includes/mdocs-settings-page.php:192
+msgid "File Highlight Colours"
+msgstr "Цвета подсветки файлов"
+
+#: includes/mdocs-settings-page.php:200
+msgid "Highlight Color Updated Hover"
+msgstr "Цвет подсветки обновленных при наведении"
+
+#: includes/mdocs-find-lost-files.php:32 includes/mdocs-localization.php:242
+msgid "File Size"
+msgstr "Размер файла"
+
+#: includes/mdocs-functions.php:1107
+msgid "TB"
+msgstr "ТБ"
+
+#: includes/mdocs-functions.php:1104
+msgid "GB"
+msgstr "ГБ"
+
+#: includes/mdocs-functions.php:1101
+msgid "MB"
+msgstr "МБ"
+
+#: includes/mdocs-functions.php:1096
+msgid "bytes"
+msgstr "байт"
+
+#: includes/mdocs-show-file-info-templates.php:214
+msgid "No function found."
+msgstr "Функция не найдена."
+
+#: includes/mdocs-settings-page.php:419
+msgid "Show upload author"
+msgstr "Автор"
+
+#: includes/mdocs-upload.php:460
+msgid "Type the name of the author."
+msgstr "Введите имя автора."
+
+#: includes/mdocs-localization.php:58 includes/mdocs-localization.php:62
+#: includes/mdocs-localization.php:66 includes/mdocs-localization.php:70
+#: includes/mdocs-localization.php:74 includes/mdocs-localization.php:87
+#: includes/mdocs-localization.php:91 includes/mdocs-localization.php:95
+#: includes/mdocs-localization.php:99 includes/mdocs-localization.php:103
+#: includes/mdocs-localization.php:107 includes/mdocs-localization.php:130
+#: includes/mdocs-localization.php:134 includes/mdocs-localization.php:138
+#: includes/mdocs-localization.php:144 includes/mdocs-localization.php:149
+#: includes/mdocs-localization.php:163 includes/mdocs-localization.php:167
+#: includes/mdocs-localization.php:171 includes/mdocs-localization.php:175
+#: includes/mdocs-localization.php:179 includes/mdocs-localization.php:183
+#: includes/mdocs-localization.php:188 includes/mdocs-localization.php:196
+#: includes/mdocs-localization.php:200 includes/mdocs-localization.php:204
+msgid "You are unauthorized to do this."
+msgstr "Вы не имеете прав делать это."
+
+#: includes/mdocs-settings-page.php:417
+msgid "Show upload categories"
+msgstr "Показать категории загрузки"
+
+#: includes/mdocs-settings-page.php:401
+msgid "Dropdown and Post Page Settings"
+msgstr "Настройки выпадающего меню и страниц"
+
+#: includes/mdocs-localization.php:220
+msgid "Your submission failed, either you tried to resubmit a form or you are having issue with sessions.<br>If the problem persists contact your administrator and tell them to disable sessions from the Memphis Documents Library setting menu."
+msgstr "Ваше загрузка не удалась. Либо вы попытались повторно отправить форму, либо у вас возникли проблемы с сессией. <br> Если проблема повторится, обратитесь к администратору, чтобы он отключил сеансы для Memphis Documents Library."
+
+#: includes/mdocs-upload.php:587
+msgid "categories"
+msgstr "Категории"
+
+#: includes/mdocs-batch-upload.php:53
+msgid "Using a FTP application connect to your sever and navagate to this folder:"
+msgstr "Откройте эту папку через ваш FTP клиент:"
+
+#: includes/mdocs-export.php:23
+msgid "Check this if you are having difficulty downloading the export file."
+msgstr "Отметьте это, если у Вас есть проблемы с загрузкой файла экспорта."
+
+#: includes/mdocs-batch-upload.php:49
+msgid "There are two batch file processing methods, the zip process is the quickest way but is sometime unreliable.  The FTP method takes a little longer and you need FTP access to your server but is more reliable."
+msgstr "Есть 2 метода обработки - ZIP быстрый, но иногда ненадёжный. FTP чуть медленнее и требует FTP доступа к серверу, но более надёжный."
+
+#: includes/mdocs-batch-upload.php:10 includes/mdocs-batch-upload.php:69
+#: includes/mdocs-batch-upload.php:244
+msgid "Process FTP Folder"
+msgstr "Обработать FTP-папку"
+
+#: includes/mdocs-batch-upload.php:58
+msgid "Upload all your files to this folder then return to Memphis Documents Library and press the \"Process FTP Folder\" button."
+msgstr "Загрузите все файлы в эту папку, затем вернитесь в Memphis Documents Library и нажмите кнопку \"Обработать FTP-папку\"."
+
+#: includes/mdocs-localization.php:211
+msgid ""
+"\n"
+"\n"
+"mDocs Error: Memphis has terminated due to a faulty nonce check.  This check is needed to deter Cross-site scripting security vulnerabilities.\n"
+"\n"
+msgstr ""
+"\n"
+"Ошибка mDocs: Memphis завершился из-за ошибочной проверки nonce. Эта проверка необходима для предотвращения уязвимостей для межсайтового скриптинга.\n"
+
+#: includes/mdocs-widgets.php:146
+msgid "Top Downloads"
+msgstr "Топ загрузок"
+
+#: includes/mdocs-widgets.php:80
+msgid "Top Rated"
+msgstr "Топ популярных"
+
+#: includes/mdocs-settings-page.php:425
+msgid "Hide Widget Titles"
+msgstr "Скрыть наименования виджетов"
+
+#: includes/mdocs-settings-page.php:423
+msgid "Widget Settings"
+msgstr "Настройка виджета"
+
+#: includes/mdocs-settings-page.php:280
+msgid "not set"
+msgstr "не задано"
+
+#: includes/mdocs-settings-page.php:278
+msgid "Post Page Target Type"
+msgstr "Тип целевой страницы"
+
+#: includes/mdocs-settings-page.php:106
+msgid "Search Settings"
+msgstr "Настройки поиска"
+
+#: includes/mdocs-settings-page.php:104
+msgid "Language Settings"
+msgstr "Языковые настройки"
+
+#: includes/mdocs-file-info-small.php:34
+msgid "File is Hidden"
+msgstr "Файл скрыт"
+
+#: includes/mdocs-file-info-small.php:36
+msgid "Post is "
+msgstr "Сообщение "
+
+#: includes/mdocs-settings-page.php:107
+msgid "Turn on Advance Search"
+msgstr "Расширенный поиск"
+
+#: includes/mdocs-shortcodes.php:41
+msgid "Enter the file name."
+msgstr "Введите имя файла."
+
+#: includes/mdocs-shortcodes.php:42
+msgid "Adds a single file to any post, page or widget."
+msgstr "Добавляет один файл в пост, на страницу или виджет."
+
+#: includes/mdocs-batch-upload.php:127
+msgid "Error: "
+msgstr "Ошибка:"
+
+#: includes/mdocs-functions.php:95
+msgid "A PHP extension stopped the file upload."
+msgstr "Расширение php остановило загрузку файла."
+
+#: includes/mdocs-functions.php:94
+msgid "Failed to write file to disk."
+msgstr "Ошибка при записи файла на диск."
+
+#: includes/mdocs-functions.php:92
+msgid "No file was uploaded"
+msgstr "Файлы не были загружены"
+
+#: includes/mdocs-functions.php:91
+msgid "The uploaded file was only partially uploaded"
+msgstr "Файл был загружен частично"
+
+#: includes/mdocs-functions.php:90
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"
+msgstr "Загружаемый файл превышает установленный директивой MAX_FILE_SIZE размер указанный в настройках HTML-формы"
+
+#: includes/mdocs-functions.php:89
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
+msgstr "Загружаемый файл превышает установленный директивой upload_max_filesize размер указанный в файле php.ini"
+
+#: includes/mdocs-functions.php:88
+msgid "There is no error, the file uploaded with success"
+msgstr "Файл успешно загружен."
+
+#: includes/mdocs-batch-upload.php:127
+msgid "The zip file you are trying to upload can not be unzipped."
+msgstr "Zip-файл, который Вы пытаетесь загрузить не может быть распакован."
+
+#: includes/mdocs-functions.php:93
+msgid "Missing a temporary folder"
+msgstr "Отсутствует папка временных файлов."
+
+#: includes/mdocs-downloads.php:163
+msgid "Redirect to Page"
+msgstr "Перенаправление на страницу"
+
+#: includes/mdocs-downloads.php:160
+msgid "This link is a direct download of the file, enter you username and password and the download will start."
+msgstr "Прямая ссылка на загрузку файла. Введите имя пользователя и пароль для начала загрузки."
+
+#: includes/mdocs-downloads.php:155
+msgid "If you have an account with this site, you can try the following links to download the file"
+msgstr "Если у Вас есть аккаунт на этом сайте, попробуйте использовать для загрузки следующие ссылки"
+
+#: includes/mdocs-downloads.php:164
+msgid "This link will redirect you to a download page, enter your username and password to be redirect to that page."
+msgstr "Эта ссылка перенаправит Вас на страницу загрузки, введите логин и пароль для перенаправления."
+
+#: includes/mdocs-batch-file-methods.php:80
+msgid "Enter a user or role type."
+msgstr "Введите пользователя или тип роли."
+
+#: includes/mdocs-settings-page.php:414
+msgid "Show upload non members"
+msgstr "Показать загрузки незарегистрированных пользователей"
+
+#: includes/mdocs-batch-upload.php:230
+msgid "Batch Upload Complete"
+msgstr "Пакетная загрузка завершена"
+
+#: includes/mdocs-batch-upload.php:22
+msgid "Zip Upload Output:"
+msgstr "Ввод загрузки Zip:"
+
+#: includes/mdocs-batch-file-methods.php:108
+msgid "Ver"
+msgstr "Ver"
+
+#: includes/mdocs-batch-file-methods.php:24
+#: includes/mdocs-batch-file-methods.php:113
+msgid "PS"
+msgstr "PS"
+
+#: includes/mdocs-batch-file-methods.php:23
+#: includes/mdocs-batch-file-methods.php:112
+msgid "FS"
+msgstr "FS"
+
+#: includes/mdocs-batch-file-methods.php:22
+#: includes/mdocs-batch-file-methods.php:111
+msgid "NM"
+msgstr "NM"
+
+#: includes/mdocs-batch-file-methods.php:21
+#: includes/mdocs-batch-file-methods.php:110
+msgid "SS"
+msgstr "SS"
+
+#: includes/mdocs-batch-file-methods.php:20
+#: includes/mdocs-batch-file-methods.php:109
+msgid "DL"
+msgstr "DL"
+
+#: includes/mdocs-batch-file-methods.php:110
+msgid "Show Social Media Buttons"
+msgstr "Показывать кнопки соцсетей"
+
+#: includes/mdocs-server-compatibility.php:120
+msgid "System Temp Directory Set"
+msgstr "Установка системного временного каталога"
+
+#: includes/mdocs-server-compatibility.php:78
+msgid "Memphis Documents Library needs a system temp directory to work.<br>Please look at you php.ini files value upload_tmp_dir.<br>You can also set a system temp directory from your servers settings as well.."
+msgstr "Memphis Documents Library требует наличия системного временного каталога.<br>Установите в файле php.ini значение upload_tmp_dir.<br>Также его можно установить в настройках web-сервера."
+
+#: includes/mdocs-batch-file-methods.php:105
+msgid "Legend"
+msgstr "Легенда"
+
+#: includes/mdocs-rights.php:127
+msgid "Login to Download"
+msgstr "Авторизуйтесь для загрузки"
+
+#: includes/mdocs-settings-page.php:73
+msgid "Bootstrap - Dashboard"
+msgstr "Bootstrap - Dashboard"
+
+#: includes/mdocs-settings-page.php:72
+msgid "Bootstrap - Frontend"
+msgstr "Bootstrap - Frontend"
+
+#: includes/mdocs-folder-editor.php:32
+msgid "Delete Folder"
+msgstr "Удалить папку"
+
+#: includes/mdocs-folder-editor.php:31
+msgid "Move Folder"
+msgstr "Переместить папку"
+
+#: includes/mdocs-settings-page.php:105
+msgid "Convert Filenames to Latin"
+msgstr "Конвертировать имена файлов в латиницу"
+
+#: includes/mdocs-upload.php:211
+msgid "The file you are trying to upload is bigger than your php.ini files upload_max_filesize.  You will have to increase that value enable to upload this file."
+msgstr "Размер загружаемого файла превышает указанный в php.ini upload_max_filesize."
+
+#: includes/mdocs-folder-editor.php:29
+msgid "Folder Permissions"
+msgstr "Права доступа к папке"
+
+#: includes/mdocs-folder-editor.php:30
+msgid "Add Sub Folder"
+msgstr "Добавить папку"
+
+#: includes/mdocs-settings-page.php:246
+msgid "Hide File Name"
+msgstr "Скрывать имя файла"
+
+#: includes/mdocs-settings-page.php:245
+msgid "Hide Name"
+msgstr "Скрывать имя"
+
+#: includes/mdocs-settings-page.php:302
+msgid "None"
+msgstr "Нет"
+
+#: includes/mdocs-settings-page.php:239
+msgid "Configuration Settings"
+msgstr "Настройки конфигурации"
+
+#: includes/mdocs-settings-page.php:205
+msgid "Navbar Style"
+msgstr "Стиль панели навигации"
+
+#: includes/mdocs-show-file-info-templates.php:256
+msgid "Login"
+msgstr "Авторизация"
+
+#: includes/mdocs-settings-page.php:241
+msgid "UI Options"
+msgstr "Настройки пользовательского интерфейса"
+
+#: includes/mdocs-settings-page.php:296
+msgid "Document Post Page Settings"
+msgstr "Настройки страницы документа"
+
+#: includes/mdocs-settings-page.php:290
+msgid "Dashboard Options"
+msgstr "Параметры панели инструментов"
+
+#: includes/mdocs-settings-page.php:274
+msgid "Post Options"
+msgstr "Опции сообщения"
+
+#: includes/mdocs-settings-page.php:247
+msgid "Hide Sub Folder Main Page - [mdocs]"
+msgstr "Скрыть главную папку - [mdocs]"
+
+#: includes/mdocs-settings-page.php:68
+msgid "Disable System Settings"
+msgstr "Отключить настройки системы"
+
+#: includes/mdocs-doc-preview.php:296
+msgid "Please Login"
+msgstr "Авторизуйтесь"
+
+#: includes/mdocs-doc-preview.php:292 includes/mdocs-doc-preview.php:303
+msgid "Access Denied"
+msgstr "Доступ запрещён"
+
+#: includes/mdocs-settings-page.php:248
+msgid "Hide Sub Folders Category Page - [mdocs cat=\"A Cat\"]"
+msgstr "Скрыть подкатегории страницы категории - [mdocs cat=\"A Cat\"]"
+
+#: includes/mdocs-settings-page.php:314
+msgid "Hide New and Updated Label"
+msgstr "Скрыть метки \"Новый\" и \"Обновлен\""
+
+#: includes/mdocs-show-file-info-templates.php:223
+msgid "downloads"
+msgstr "загрузок"
+
+#: includes/mdocs-server-compatibility.php:9
+msgid "Your PHP Version is:"
+msgstr "Ваша версия PHP:"
+
+#: includes/mdocs-server-compatibility.php:12
+msgid "You may experience errors will using this plugin."
+msgstr "Вы можете столкнуться с ошибками при использовании этого плагина."
+
+#: includes/mdocs-server-compatibility.php:93
+msgid "PHP Version Support 5.5.9 or greater"
+msgstr "Поддерживаемая версия PHP 5.5.9 и выше"
+
+#: includes/mdocs-server-compatibility.php:12
+msgid "Your PHP version is not support by Memphis Documents Library."
+msgstr "Ваша версия PHP не поддерживается."
+
+#: includes/mdocs-settings-page.php:336
+msgid "Hide Sortbar"
+msgstr "Скрыть панель сортировки"
+
+#: includes/mdocs-settings-page.php:243
+msgid "Hide Navbar"
+msgstr "Скрыть панель навигации"
+
+#: includes/mdocs-settings-page.php:69
+msgid "Disable Sessions"
+msgstr "Отключить сессии"
+
+#: includes/mdocs-settings-page.php:66
+msgid "System Settings"
+msgstr "Системные настройки"
+
+#: includes/mdocs-settings-page.php:264
+msgid "Post Page Title Font Size"
+msgstr "Размер шрифта заголовка страницы сообщения"
+
+#: includes/mdocs-settings-page.php:263
+msgid "Override Post Title Font Size"
+msgstr "Переопределить размер шрифта заголовка сообщения"
+
+#: includes/mdocs-server-compatibility.php:58
+msgid " is not read/writeable.  Memphis Documents Library will not work with this access."
+msgstr " не читается/не записывается. Библиотека документов Memphis не будет работать с этим доступом."
+
+#: includes/mdocs-server-compatibility.php:58
+msgid "The WordPress upload directory:"
+msgstr "Каталог загрузки WordPress:"
+
+#: includes/mdocs-settings-page.php:262
+msgid "Show Post Title"
+msgstr "Показать заголовок публикации"
+
+#: includes/mdocs-settings-page.php:250
+msgid "Hide the WordPress Entry Summary Div"
+msgstr "Скрыть сводку ввода Div WordPress"
+
+#: includes/mdocs-settings-page.php:70
+msgid "This setting might result in duplicate files being added, deleted, or other actions."
+msgstr "Эта настройка может вызвать дублирование загрузки, удаления или других действий с файлами."
+
+#: includes/mdocs-server-compatibility.php:62
+msgid "The Current WordPress upload directory for Memphis Document Library:"
+msgstr "Текущий каталог загрузки файлов:"
+
+#: includes/mdocs-settings-page.php:305
+msgid "Versions Tab"
+msgstr "Вкладка версий"
+
+#: includes/mdocs-settings-page.php:303
+msgid "Description Tab"
+msgstr "Вкладка описания"
+
+#: includes/mdocs-settings-page.php:295
+msgid "Hide All Files"
+msgstr "Скрыть все файлы"
+
+#: includes/mdocs-settings-page.php:304
+msgid "Preview Tab"
+msgstr "Вкладка предварительного просмотра"
+
+#: includes/mdocs-settings-page.php:299
+msgid "Show Versions Tab"
+msgstr "Показать вкладку \"Версии\""
+
+#: includes/mdocs-settings-page.php:298
+msgid "Show Preview Tab"
+msgstr "Показать вкладку \"Предпросмотр\""
+
+#: includes/mdocs-settings-page.php:297
+msgid "Show Description Tab"
+msgstr "Показать вкладку \"Описание\""
+
+#: includes/mdocs-settings-page.php:244
+msgid "Hide File Type Icons"
+msgstr "Скрыть значки типов файлов"
+
+#: includes/mdocs-post-page.php:57
+msgid "Sorry you can't see this Memphis Documents file you don't have the proper permission."
+msgstr "У Вас нет разрешений на просмотр данного файла."
+
+#: includes/mdocs-settings-page.php:276
+msgid "Hide All Posts"
+msgstr "Скрыть все публикации"
+
+#: includes/mdocs-settings-page.php:403
+msgid "Show Social"
+msgstr "Показать социальные сети"
+
+#: includes/mdocs-settings-page.php:292
+msgid "Show Memphis Files in Media Menu"
+msgstr "Показать файлы Memphis в меню мультимедиа"
+
+#: includes/mdocs-server-compatibility.php:25
+msgid "If you have lots of folders it is recommend to increasing this value."
+msgstr "Если у Вас большое количество папок, рекомендуется увеличить данное значение."
+
+#: includes/mdocs-upload.php:556 includes/mdocs-localization.php:233
+#: includes/mdocs-batch-file-methods.php:15
+#: includes/mdocs-batch-file-methods.php:106
+msgid "Name"
+msgstr "Имя"
+
+#. Author URI of the plugin
+msgid "http://www.kingofnothing.net/"
+msgstr "http://www.kingofnothing.net/"
+
+#. Plugin URI of the plugin
+msgid "http://www.kingofnothing.net/memphis-documents-library/"
+msgstr "http://www.kingofnothing.net/memphis-documents-library/"
+
+#: includes/mdocs-versions.php:26 includes/mdocs-versions.php:36
+#: includes/mdocs-doc-preview.php:313
+msgid "Current"
+msgstr "Текущий"
+
+#: includes/mdocs-versions.php:23 includes/mdocs-versions.php:33
+#: includes/mdocs-doc-preview.php:311 includes/mdocs-batch-file-methods.php:17
+#: includes/mdocs-batch-file-methods.php:107
+msgid "Date Modified"
+msgstr "Дата изменения"
+
+#: includes/mdocs-widgets.php:87 includes/mdocs-versions.php:21
+#: includes/mdocs-versions.php:31 includes/mdocs-doc-preview.php:309
+#: includes/mdocs-batch-file-methods.php:172
+#: includes/mdocs-batch-file-methods.php:230
+msgid "File"
+msgstr "Файл"
+
+#: includes/mdocs-settings.php:61
+msgid "Documents"
+msgstr "Документы"
+
+#: includes/mdocs-settings-page.php:434
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: includes/mdocs-settings-page.php:96
+msgid ".htaccess File Editor"
+msgstr "Редактор файла .htaccess"
+
+#: includes/mdocs-widgets.php:88 includes/mdocs-localization.php:241
+#: includes/mdocs-settings-page.php:326
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: includes/mdocs-settings-page.php:322
+msgid "Number of Downloads"
+msgstr "Количество загрузок"
+
+#: includes/mdocs-settings-page.php:210
+msgid "Border Color"
+msgstr "Цвет границы"
+
+#: includes/mdocs-settings-page.php:207
+msgid "Navbar Options"
+msgstr "Опции панели навигации"
+
+#: includes/mdocs-settings-page.php:188
+msgid "Download Button Preview"
+msgstr "Предпросмотр кнопки Загрузить"
+
+#: includes/mdocs-settings-page.php:184 includes/mdocs-settings-page.php:212
+msgid "Text Color"
+msgstr "Цвет текста"
+
+#: includes/mdocs-settings-page.php:180 includes/mdocs-settings-page.php:208
+msgid "Background Color"
+msgstr "Цвет фона"
+
+#: includes/mdocs-settings-page.php:186 includes/mdocs-settings-page.php:214
+msgid "Text Hover Color"
+msgstr "Цвет текста при наведении"
+
+#: includes/mdocs-settings-page.php:182
+msgid "Background Hover Color"
+msgstr "Цвет фона при наведении"
+
+#: includes/mdocs-settings-page.php:179
+msgid "Download Button Options"
+msgstr "Опции кнопки Загрузка"
+
+#: includes/mdocs-settings-page.php:251
+msgid "Document List Font Size"
+msgstr "Размер шрифта списка документов"
+
+#: includes/mdocs-settings-page.php:77
+msgid "Fontawesome"
+msgstr "Fontawesome"
+
+#: includes/mdocs-settings-page.php:76
+msgid "jQuery"
+msgstr "jQuery"
+
+#: includes/mdocs-settings-page.php:79
+msgid "Use Local Document Preview"
+msgstr "Использовать предпросмотр документов Google"
+
+#: includes/mdocs-settings-page.php:78
+msgid "Document Preview Settings"
+msgstr "Настройки предпросмотра документов"
+
+#: includes/mdocs-settings-page.php:56
+msgid "Library Settings"
+msgstr "Настройки библиотеки"
+
+#: includes/mdocs-server-compatibility.php:89
+msgid "Results"
+msgstr "Результаты"
+
+#: includes/mdocs-server-compatibility.php:88
+msgid "System Requirements"
+msgstr "Системные требования"
+
+#: includes/mdocs-server-compatibility.php:20
+msgid "Document thumbnails will not work."
+msgstr "Миниатюры документов работать не будут."
+
+#: includes/mdocs-rights.php:187
+msgid "Other Versions"
+msgstr "Другие версии"
+
+#: includes/mdocs-rights.php:180
+msgid "Refresh Preview and Thumbnail"
+msgstr "Обновить предпросмотр и миниатюру"
+
+#: includes/mdocs-rights.php:172
+msgid "Delete File"
+msgstr "Удалить файл"
+
+#: includes/mdocs-rights.php:164
+msgid "Rate"
+msgstr "Оценить"
+
+#: includes/mdocs-rights.php:156 includes/mdocs-social.php:28
+msgid "Share"
+msgstr "Поделиться"
+
+#: includes/mdocs-rights.php:112 includes/mdocs-rights.php:114
+msgid "Manage Versions"
+msgstr "Управление версиями"
+
+#: includes/mdocs-rights.php:90
+msgid "Manage File"
+msgstr "Управление файлом"
+
+#: includes/mdocs-rights.php:101
+msgid "Goto Post"
+msgstr "Перейти к записи"
+
+#: includes/mdocs-restore-defaults.php:7
+msgid "Restore Memphis Document Library's to Defaults"
+msgstr "Восстановить Memphis Document Library к состоянию по умолчанию."
+
+#: includes/mdocs-ratings.php:24
+msgid "Ratings functionality is off."
+msgstr "Рейтинги отключены."
+
+#: includes/mdocs-modals.php:147
+msgid "Move"
+msgstr "Переместить"
+
+#: includes/mdocs-modals.php:129
+msgid "Save"
+msgstr "Сохранить"
+
+#: includes/mdocs-versions.php:78 includes/mdocs-versions.php:79
+#: includes/mdocs-modals.php:33 includes/mdocs-modals.php:39
+#: includes/mdocs-modals.php:53 includes/mdocs-modals.php:57
+#: includes/mdocs-modals.php:71 includes/mdocs-modals.php:75
+#: includes/mdocs-modals.php:90 includes/mdocs-modals.php:94
+#: includes/mdocs-modals.php:108 includes/mdocs-modals.php:112
+#: includes/mdocs-modals.php:125 includes/mdocs-modals.php:130
+#: includes/mdocs-modals.php:143 includes/mdocs-modals.php:148
+#: includes/mdocs-modals.php:161 includes/mdocs-modals.php:166
+#: includes/mdocs-modals.php:179 includes/mdocs-modals.php:183
+#: includes/mdocs-shortcodes.php:114 includes/mdocs-shortcodes.php:127
+msgid "Close"
+msgstr "Закрыть"
+
+#: includes/mdocs-localization.php:30
+msgid "Download Page"
+msgstr "Страница загрузки"
+
+#: includes/mdocs-localization.php:24
+msgid "Current File"
+msgstr "Текущий файл"
+
+#: includes/mdocs-localization.php:23
+msgid "Add Document"
+msgstr "Добавить документ"
+
+#: includes/mdocs-localization.php:22
+msgid "Adding Document"
+msgstr "Добавление документа"
+
+#: includes/mdocs-import.php:22 includes/mdocs-import.php:36
+msgid "Delete Old Files"
+msgstr "Удалить старые файлы"
+
+#: includes/mdocs-functions.php:1027
+msgid "Not Right Now"
+msgstr "Не прямо сейчас"
+
+#: includes/mdocs-post-page.php:17
+msgid "No documents found"
+msgstr "Документы не найдены"
+
+#: includes/mdocs-post-page.php:16
+msgid "Search Documents"
+msgstr "Поиск документов"
+
+#: includes/mdocs-post-page.php:15
+msgid "View Documents"
+msgstr "Просмотр документов"
+
+#: includes/mdocs-post-page.php:14
+msgid "All Documents"
+msgstr "Все документы"
+
+#: includes/mdocs-post-page.php:13
+msgid "New Documents"
+msgstr "Новые документы"
+
+#: includes/mdocs-post-page.php:12
+msgid "Edit Documents"
+msgstr "Редактировать документы"
+
+#: includes/mdocs-post-page.php:11
+msgid "Add New Documents"
+msgstr "Добавить новые документы"
+
+#: includes/mdocs-post-page.php:10
+msgid "Add New"
+msgstr "Добавить новый"
+
+#: includes/mdocs-post-page.php:9
+msgctxt "mdocs"
+msgid "mdocs"
+msgstr "mdocs"
+
+#: includes/mdocs-functions.php:800
+msgid "File System Cleanup"
+msgstr "Очистка файловой системы"
+
+#: includes/mdocs-dashboard.php:4 includes/mdocs-functions.php:797
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/mdocs-functions.php:790
+msgid "Export"
+msgstr "Экспорт"
+
+#: includes/mdocs-functions.php:789
+msgid "Import"
+msgstr "Импорт"
+
+#: includes/mdocs-functions.php:770
+msgid "Add New Document"
+msgstr "Добавить новый документ"
+
+#: includes/mdocs-functions.php:764
+msgid "Documents Library"
+msgstr "Библиотека документов"
+
+#: includes/mdocs-doc-preview.php:69
+msgid "No preview type has been selected"
+msgstr "Тип предпросмотра не был выбран"
+
+#: includes/mdocs-rights.php:140 includes/mdocs-functions.php:38
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: includes/mdocs-versions.php:14 includes/mdocs-functions.php:13
+#: includes/mdocs-functions.php:41
+msgid "Versions"
+msgstr "Версии"
+
+#: includes/mdocs-versions.php:25 includes/mdocs-versions.php:35
+#: includes/mdocs-versions.php:63 includes/mdocs-modals.php:165
+#: includes/mdocs-functions.php:10
+msgid "Delete"
+msgstr "Удалить"
+
+#: includes/mdocs-functions.php:7
+msgid "Update"
+msgstr "Обновить"
+
+#: includes/mdocs-find-lost-files.php:68
+msgid "Save Files"
+msgstr "Сохранить файлы"
+
+#: includes/mdocs-filesystem-cleanup.php:67
+msgid "Filesystem Analyzed"
+msgstr "Файловая система проанализирована"
+
+#: includes/mdocs-filesystem-cleanup.php:55
+msgid "Run File System Cleanup Again"
+msgstr "Запустить очистку файловой системы снова"
+
+#: includes/mdocs-filesystem-cleanup.php:47
+#: includes/mdocs-filesystem-cleanup.php:81
+#: includes/mdocs-filesystem-cleanup.php:82
+msgid "Element ID"
+msgstr "ID элемента"
+
+#: includes/mdocs-filesystem-cleanup.php:32
+msgid "Filesystem Cleanup Complete"
+msgstr "Очистка файловой системы завершена."
+
+#: includes/mdocs-filesystem-cleanup.php:14
+msgid "Run Filesystem Cleanup"
+msgstr "Запустить очистку файловой системы"
+
+#: includes/mdocs-filesystem-cleanup.php:8
+msgid "Filesystem Cleanup"
+msgstr "Очистка файловой системы"
+
+#: includes/mdocs-file-info-small.php:86 includes/mdocs-functions.php:793
+msgid "Admin Options"
+msgstr "Настройки администратора"
+
+#: includes/mdocs-file-info-small.php:75 includes/mdocs-functions.php:786
+#: includes/mdocs-settings-page.php:293
+msgid "File Options"
+msgstr "Настройки файла"
+
+#: includes/mdocs-widgets.php:20 includes/mdocs-post-page.php:157
+#: includes/mdocs-settings-page.php:325
+msgid "Last Updated"
+msgstr "Последний обновленный"
+
+#: includes/mdocs-localization.php:239 includes/mdocs-settings-page.php:324
+msgid "Author"
+msgstr "Автор"
+
+#: includes/mdocs-localization.php:235
+#: includes/mdocs-batch-file-methods.php:109 includes/mdocs-post-page.php:153
+msgid "Downloads"
+msgstr "Загрузки"
+
+#: includes/mdocs-post-page.php:152
+msgid "Stars"
+msgstr "Звезды"
+
+#: includes/mdocs-ratings.php:12 includes/mdocs-post-page.php:138
+msgid "Your Rating"
+msgstr "Ваша оценка"
+
+#: includes/mdocs-ratings.php:11 includes/mdocs-post-page.php:137
+msgid "Rate Me!"
+msgstr "Оцени меня!"
+
+#: includes/mdocs-post-page.php:128 includes/mdocs-post-page.php:132
+msgid "Please Login to download this file"
+msgstr "Пожалуйста авторизуйтесь, чтобы загрузить этот файл"
+
+#: includes/mdocs-file-info-small.php:29 includes/mdocs-post-page.php:114
+#: includes/mdocs-post-page.php:116
+msgid "Updated"
+msgstr "Обновлено"
+
+#: includes/mdocs-file-info-small.php:24 includes/mdocs-post-page.php:110
+#: includes/mdocs-post-page.php:112
+msgid "New"
+msgstr "Новый"
+
+#: includes/mdocs-export.php:13
+msgid "Export Files"
+msgstr "Экспорт файлов"
+
+#: includes/mdocs-localization.php:234 includes/mdocs-rights.php:148
+#: includes/mdocs-shortcodes.php:26 includes/mdocs-functions.php:35
+msgid "Description"
+msgstr "Описание"
+
+#: includes/mdocs-file-info-small.php:97
+#: includes/mdocs-batch-file-methods.php:113 includes/mdocs-post-page.php:160
+msgid "Post Status"
+msgstr "Статус сообщения"
+
+#: includes/mdocs-file-info-small.php:96
+#: includes/mdocs-batch-file-methods.php:112 includes/mdocs-post-page.php:159
+msgid "File Status"
+msgstr "Статус файла"
+
+#: includes/mdocs-upload.php:553
+msgid "File Properties"
+msgstr "Свойства файла"
+
+#: includes/mdocs-upload.php:537
+msgid "loading"
+msgstr "загрузка"
+
+#: includes/mdocs-categories.php:23 includes/mdocs-categories.php:31
+#: includes/mdocs-localization.php:14 includes/mdocs-folders.php:23
+#: includes/mdocs-folders.php:31
+msgid "Remove"
+msgstr "Убрать"
+
+#: includes/mdocs-categories.php:22 includes/mdocs-categories.php:30
+#: includes/mdocs-folders.php:22 includes/mdocs-folders.php:30
+#: includes/mdocs-settings-page.php:346
+msgid "Order"
+msgstr "Порядок"
+
+#: includes/mdocs-categories.php:14 includes/mdocs-folders.php:14
+msgid "Add Main Folder"
+msgstr "Добавить основную директорию"
+
+#: includes/mdocs-batch-upload.php:120
+msgid "Complete"
+msgstr "Завершено"
+
+#: includes/mdocs-versions.php:22 includes/mdocs-versions.php:32
+#: includes/mdocs-batch-upload.php:89 includes/mdocs-localization.php:237
+#: includes/mdocs-doc-preview.php:310 includes/mdocs-batch-file-methods.php:19
+#: includes/mdocs-batch-file-methods.php:108 includes/mdocs-post-page.php:155
+#: includes/mdocs-settings-page.php:323
+msgid "Version"
+msgstr "Версия"
+
+#: includes/mdocs-find-lost-files.php:53 includes/mdocs-functions.php:1098
+msgid "KB"
+msgstr "КБ"
+
+#: includes/mdocs-settings-page.php:321
+msgid "File Name"
+msgstr "Имя файла"
+
+#: includes/mdocs-batch-file-methods.php:169
+msgid "List of files"
+msgstr "Список файлов"
+
+#: includes/mdocs-allowed-file-types.php:35 includes/mdocs-update-mime.php:42
+msgid "add"
+msgstr "добавить"
+
+#: includes/mdocs-allowed-file-types.php:28
+msgid "remove"
+msgstr "убрать"
+
+#: includes/mdocs-allowed-file-types.php:23 includes/mdocs-update-mime.php:30
+#: includes/mdocs-functions.php:784
+msgid "Options"
+msgstr "Опции"
+
+#: includes/mdocs-allowed-file-types.php:9
+msgid "Allow File Types"
+msgstr "Разрешить типы файлов"
+
+#: includes/mdocs-localization.php:238 includes/mdocs-post-page.php:154
+msgid "Owner"
+msgstr "Владелец"
+
+#: includes/mdocs-shortcodes.php:38
+msgid "Adds a list of all files of the Memphis Documents Library on any page, post or widget."
+msgstr "Добавляет список всех файлов библиотеки документов Memphis на любую страницу, сообщение или виджет."
+
+#: includes/mdocs-shortcodes.php:34
+msgid "Adds files from  a specific folder of the Memphis Documents Library on any page, post or widget."
+msgstr "Добавляет файлы из определенной папки библиотеки документов Memphis на любую страницу, сообщение или виджет."
+
+#: includes/mdocs-shortcodes.php:30
+msgid "Adds the default Memphis Documents Library file list to any page, post or widget."
+msgstr "Добавляет список файлов библиотеки файлов Memphis по умолчанию на любую страницу, сообщение или виджет."
+
+#: includes/mdocs-patches.php:477
+msgid "Your Memphis <em>Categories</em> have been updated to handle subcategories this should not effect your current file system in anyway.  If there is any issues please post a comment in the support forum of this plugin.  It is recommended to re-export your files again due to the new way categories are structured."
+msgstr "Ваши Мемфис <b>Категории</b> были обновлены для обработки подкатегорий, поэтому это не должно повлиять на вашу текущую файловую систему. Если есть какие-либо вопросы, оставьте комментарий на форуме поддержки этого плагина. Рекомендуется повторно экспортировать ваши файлы из-за структурирования новых категорий."
+
+#: includes/mdocs-settings.php:57
+msgid "Unable to create the directory \"mdocs\" which is needed by Memphis Documents Library. Is its parent directory writable by the server?"
+msgstr "Не удалось создать каталог \"mdocs\", который требуется библиотеке документов Memphis. Является ли его родительский каталог доступным для записи сервером?"
+
+#: includes/mdocs-settings-page.php:418
+msgid "Show upload description"
+msgstr "Показать описание загрузки"
+
+#: includes/mdocs-settings-page.php:416
+msgid "Show upload tags"
+msgstr "Показать теги загрузки"
+
+#: includes/mdocs-settings-page.php:410
+msgid "Show upload date"
+msgstr "Показать дату загрузки"
+
+#: includes/mdocs-settings-page.php:409
+msgid "Show upload version"
+msgstr "Показать версию загрузки"
+
+#: includes/mdocs-settings-page.php:406
+msgid "This hides input fields from users when they are uploading a file."
+msgstr "Это скрывает поля ввода от пользователей, когда они загружают файл."
+
+#: includes/mdocs-settings-page.php:406
+msgid "Displayed File Properties"
+msgstr "Отображаемые свойства файла"
+
+#: includes/mdocs-settings-page.php:401
+msgid "Displayed File Information"
+msgstr "Отображаемая информация о файле"
+
+#: includes/mdocs-settings-page.php:300
+msgid "Default Content:"
+msgstr "Содержание по умолчанию:"
+
+#: includes/mdocs-settings-page.php:317
+msgid "Default Sort Options"
+msgstr "Настройки сортировки по умолчанию"
+
+#: includes/mdocs-settings-page.php:315
+msgid "days - Time to Displayed"
+msgstr "дней - время отображения"
+
+#: includes/mdocs-settings-page.php:311
+msgid "New & Updated Banner"
+msgstr "Новый и обновленный баннер"
+
+#: includes/mdocs-settings-page.php:95
+msgid "Date/Time Format Reference"
+msgstr "Ссылка на формат даты/времени"
+
+#: includes/mdocs-settings-page.php:93
+msgid "Date/Time Format"
+msgstr "Формат даты/времени"
+
+#: includes/mdocs-settings-page.php:404
+msgid "Show Sharing Button/Link"
+msgstr "Показать кнопку совместного доступа/ссылку"
+
+#: includes/mdocs-settings-page.php:275
+msgid "Hide All Posts: (Non Members)"
+msgstr "Скрыть все сообщения: (Не участники)"
+
+#: includes/mdocs-settings-page.php:294
+msgid "Hide All Files: (Non Members)"
+msgstr "Скрыть все файлы: (Не участники)"
+
+#: includes/mdocs-settings-page.php:277
+msgid "Hide All Post From Homepage"
+msgstr "Скрыть все сообщения от главной страницы"
+
+#: includes/mdocs-settings-page.php:291
+msgid "Show Memphis Posts Menu"
+msgstr "Показать меню сообщений Memphis"
+
+#: includes/mdocs-settings-page.php:249
+msgid "Show No Files Found"
+msgstr "Показывать Файлы не найдены"
+
+#: includes/mdocs-settings-page.php:216
+msgid "Navbar Preview"
+msgstr "Предварительный просмотр панели навигации"
+
+#: includes/mdocs-settings-page.php:75
+msgid "Using one, all or none of these Bootstrap fixes, may help."
+msgstr "Использование одного, всех или ни одного из этих исправлений Bootstrap может помочь."
+
+#: includes/mdocs-settings-page.php:74
+msgid "Bootstrap Dropdown Fix"
+msgstr "Исправление выпадающего списка Bootstrap"
+
+#: includes/mdocs-settings-page.php:71
+msgid "Disable Thrid Party Includes"
+msgstr "Отключить сторонние вложения"
+
+#: includes/mdocs-settings-page.php:84
+msgid "Login to Box Developer site to get your key."
+msgstr "Войдите на сайт разработчика Box, чтобы получить свой ключ."
+
+#: includes/mdocs-settings-page.php:83
+msgid "Enter your key here"
+msgstr "Введите свой ключ здесь"
+
+#: includes/mdocs-settings-page.php:82
+msgid "Box View Key"
+msgstr "Ключ Box View"
+
+#: includes/mdocs-settings-page.php:81
+msgid "Use Box Document Preview"
+msgstr "Использовать Box Document Preview"
+
+#: includes/mdocs-server-compatibility.php:115
+msgid "Date Time Method Available"
+msgstr "Метод Даты Времени доступен"
+
+#: includes/mdocs-server-compatibility.php:105
+msgid "PHP Image Processing and GD"
+msgstr "Обработка изображений PHP и GD"
+
+#: includes/mdocs-server-compatibility.php:90
+msgid "Information"
+msgstr "Информация"
+
+#: includes/mdocs-server-compatibility.php:70
+msgid "Ajax functionality will not work, problems with displaying descriptions and previews will occur."
+msgstr "Функциональность Ajax не будет работать, возникнут проблемы с отображением описаний и предварительного просмотра."
+
+#: includes/mdocs-server-compatibility.php:33
+msgid "PHP version 5.3 or greater is required to be able to modify dates."
+msgstr "Для изменения дат требуется PHP-версии 5.3 или более поздняя."
+
+#: includes/mdocs-server-compatibility.php:28
+msgid "If you have lots of folders we recommend increasing this value."
+msgstr "Если у вас много папок, мы рекомендуем увеличить это значение."
+
+#: includes/mdocs-localization.php:225
+msgid "You have reached the maxium number of input variable allowed for your servers configuration, this means you can not edit folders anymore.  To be able to edit folders again, please increase the variable max_input_vars in your php.ini file."
+msgstr "Вы достигли максимального количества входных переменных, разрешенных для конфигурации ваших серверов, это означает, что вы больше не можете редактировать папки. Чтобы снова редактировать папки, увеличьте переменную max_input_vars в файле php.ini."
+
+#: includes/mdocs-localization.php:219
+msgid "No folders found.  The upload process can not proceed."
+msgstr "Папок не найдено. Процесс загрузки не может продолжаться."
+
+#: includes/mdocs-localization.php:218
+msgid "Sorry, this file type is not permitted for security reasons.  If you want to add this file type please goto the setting page of Memphis Documents Library and add it to the Allowed File Type menu."
+msgstr "К сожалению, этот тип файла запрещен по соображениям безопасности. Если вы хотите добавить этот тип файла, перейдите на страницу настроек библиотеки документов Memphis и добавьте его в Разрешенные типы файлов."
+
+#: includes/mdocs-localization.php:125
+msgid "preview has been updated."
+msgstr "предварительный просмотр был обновлен."
+
+#: includes/mdocs-downloads.php:159 includes/mdocs-localization.php:31
+msgid "Direct Download"
+msgstr "Прямая загрузка"
+
+#: includes/mdocs-localization.php:21
+msgid "Update Document"
+msgstr "Обновить документ"
+
+#: includes/mdocs-localization.php:20
+msgid "Updating Document"
+msgstr "Обновление документа"
+
+#: includes/mdocs-localization.php:15
+msgid "New Folder"
+msgstr "Новая папка"
+
+#: includes/mdocs-localization.php:11
+msgid ""
+"You are about to delete this file.  Once deleted you will lose this file!\n"
+"\n"
+"'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Вы собираетесь удалить этот файл. После удаления вы потеряете этот файл!\n"
+"\n"
+"'Cancel', чтобы отменить, 'OK ', чтобы удалить."
+
+#: includes/mdocs-import.php:245
+msgid "File extension not allowed"
+msgstr "Расширение файла не разрешено"
+
+#: includes/mdocs-import.php:79
+msgid "Old folder structure found, updated to the new folder structure.  It is recommened that you re-export you files again.  The process did finish."
+msgstr "Обнаружена старая структура папок, обновлена ​​до новой структуры папок. Рекомендуется повторить экспорт файлов. Процесс завершен."
+
+#: includes/mdocs-import.php:38
+msgid "Import Memphis Documents Library"
+msgstr "Импортировать библиотеку документов Memphis"
+
+#: includes/mdocs-import.php:32
+msgid "Remember to always export any valuable data before doing an import."
+msgstr "Не забудьте всегда экспортировать ценные данные перед импортом."
+
+#: includes/mdocs-import.php:31
+msgid "Add the Zip File"
+msgstr "Добавить Zip-файл"
+
+#: includes/mdocs-import.php:26
+msgid "Please take great care in using this method as there is little to no return."
+msgstr "Пожалуйста, проявляйте большую осторожность при использовании этого метода, так как это необратимо."
+
+#: includes/mdocs-import.php:24
+msgid ""
+"This method deletes all files, posted and version on the current system. After the method has completed you will\n"
+"\t\t\t\t\t<br>get a list of all the conflicts that have occured make note of them."
+msgstr ""
+"Этот метод удаляет все файлы, опубликованные и версии в текущей системе. После того, как метод завершится, вы получите\n"
+"\t\t\t\t\t<br>список всех конфликтов, которые произошли, обратите внимание на них."
+
+#: includes/mdocs-import.php:23
+msgid "Is a good when you have a empty documents library or you at looking to refresh your current library."
+msgstr "Хорошо, когда у вас есть пустая библиотека документов или вы хотите обновить вашу текущую библиотеку."
+
+#: includes/mdocs-import.php:17
+msgid ""
+"Is the safest way to import.  This option keeps all your current files and only imports new ones. \n"
+"\t\t\t\t\t<br>If a file that is being imported matches one on the current system, the one on the current system will be left untouched,\n"
+"\t\t\t\t\t<br>and you will have to manually import these files."
+msgstr ""
+"Это самый безопасный способ импорта. Эта опция сохраняет все ваши текущие файлы и импортирует только новые.\n"
+"\t\t\t\t\t<br>Если файл, который импортируется, соответствует одному в текущей системе, то в текущей системе будет оставлено нетронутым,\n"
+"\t\t\t\t\t<br>и вам придется вручную импортировать эти файлы."
+
+#: includes/mdocs-import.php:9
+msgid "Import Files"
+msgstr "Импорт файлов"
+
+#: includes/mdocs-functions.php:1026
+msgid "Run Updater"
+msgstr "Запустить обновление"
+
+#: includes/mdocs-functions.php:1024
+msgid "DO NOT LEAVE PAGE ONCE THIS UPDATER HAS STARTER!"
+msgstr "НЕ ПОКИДАЙТЕ СТРАНИЦУ ПОСЛЕ ЗАПУСКА ОБНОВЛЕНИЯ!"
+
+#: includes/mdocs-functions.php:1023
+msgid "You may run this process anytime by going to the Settings menu and pressing \"Run Preview and Thumbnail Updater\"."
+msgstr "Вы можете запустить этот процесс в любое время, перейдя в меню «Настройки» и нажав «Запустить предварительный просмотр и редактор эскизов»."
+
+#: includes/mdocs-functions.php:1022
+msgid "If you choose not to run this updater now preview will not work."
+msgstr "Если вы решите не запускать это обновление, предварительный просмотр не будет работать."
+
+#: includes/mdocs-functions.php:1021
+msgid "The process depending on the size of your Library can take a long time, so make sure you have the time run this updater."
+msgstr "Процесс, зависящий от размера вашей библиотеки, может занять много времени, поэтому убедитесь, что у вас есть время запуска этого обновления."
+
+#: includes/mdocs-functions.php:1019
+msgid "This process requires an update to your Memphis Documents Library, which will be adding information needed for"
+msgstr "Этот процесс требует обновления вашей библиотеки документов Memphis, которая будет добавлять информацию, необходимую для"
+
+#: includes/mdocs-functions.php:1018 includes/mdocs-functions.php:1019
+msgid "Box View"
+msgstr "Box View"
+
+#: includes/mdocs-functions.php:1018
+msgid "Version 3.0 of Memphis Documents Library now uses a new documents preview tool Called"
+msgstr "В версии 3.0 библиотеки документов Memphis теперь используется инструмент предварительного просмотра документов Called"
+
+#: includes/mdocs-functions.php:1017
+msgid "Document Preview Updater"
+msgstr "Обновление предварительного просмотра документов"
+
+#: includes/mdocs-post-page.php:8
+msgid "Memphis Documents Posts"
+msgstr "Сообщения Memphis Documents"
+
+#: includes/mdocs-shortcodes.php:20 includes/mdocs-shortcodes.php:25
+#: includes/mdocs-functions.php:802
+msgid "Short Codes"
+msgstr "Шорткоды"
+
+#: includes/mdocs-functions.php:791
+msgid "Batch Upload"
+msgstr "Пакетная загрузка"
+
+#: includes/mdocs-functions.php:584
+msgid "Memphis Info"
+msgstr "Информация о Memphis"
+
+#: includes/mdocs-functions.php:582
+msgid "Memphis Error"
+msgstr "Ошибка Memphis"
+
+#: includes/mdocs-filesystem-cleanup.php:70
+msgid "Below is a list of files and data that look to be broken and or unused by Memphis Documents Library.  The next phase of the process will try and remove all this unlinked information.<br>Please make sure you have made an export of the files before continuing.  If anything goes wrong just import your export file to revert all changes."
+msgstr "Ниже приведен список файлов и данных, которые выглядят сломанными и не используются библиотекой документов Memphis. Следующая фаза процесса попытается удалить всю эту несвязанную информацию.<br>Перед продолжением убедитесь, что вы сделали экспорт файлов. Если что-то пойдет не так, просто импортируйте экспортированный файл, чтобы вернуть все изменения."
+
+#: includes/mdocs-filesystem-cleanup.php:48
+#: includes/mdocs-filesystem-cleanup.php:83
+msgid "There is no unlinked data."
+msgstr "Нет несвязанных данных."
+
+#: includes/mdocs-filesystem-cleanup.php:45
+#: includes/mdocs-filesystem-cleanup.php:79
+msgid "Unlinked Data"
+msgstr "Несвязанные данные"
+
+#: includes/mdocs-filesystem-cleanup.php:37
+#: includes/mdocs-filesystem-cleanup.php:72
+msgid "Unlinked Files"
+msgstr "Несвязанные файлы"
+
+#: includes/mdocs-filesystem-cleanup.php:35
+msgid "Your file system has been cleaned.  Remember if you encounter any issues revert back to your previous version using the import tool."
+msgstr "Ваша файловая система очищена. Помните, если вы столкнулись с любыми проблемами, вернитесь к своей предыдущей версии с помощью инструмента импорта."
+
+#: includes/mdocs-filesystem-cleanup.php:12
+msgid "Use this functionality to run a system check to locate and remove any broken files/data links inside Memphis Documents Library.<br>Be sure to make a backup copy before running this check."
+msgstr "Используйте эту функцию, чтобы выполнить системную проверку, чтобы найти и удалить поврежденные файлы/данные в библиотеке документов Memphis.<br>Перед выполнением этой проверки обязательно сделайте резервную копию."
+
+#: includes/mdocs-file-info-small.php:12
+#: includes/mdocs-show-file-info-templates.php:233
+msgid "Scheduled"
+msgstr "Запланированно"
+
+#: includes/mdocs-post-page.php:126
+msgid "This file can not<br>be downloaded."
+msgstr "Этот файл не может<br>быть загружен."
+
+#: includes/mdocs-downloads.php:132
+msgid "was not found, file not exported."
+msgstr "не найден, файл не экспортирован."
+
+#: includes/mdocs-export.php:21
+msgid "Export Memphis Documents Library"
+msgstr "Экспортировать библиотеку документов Memphis"
+
+#: includes/mdocs-downloads.php:84
+msgid "was not found, please contact the owner for assistance."
+msgstr "не найден, обратитесь за помощью к владельцу."
+
+#: includes/mdocs-downloads.php:82 includes/mdocs-downloads.php:84
+#: includes/mdocs-downloads.php:132
+msgid "Memphis Documents Error"
+msgstr "Ошибка Memphis Documents"
+
+#: includes/mdocs-upload.php:471
+msgid "Comma Separated List"
+msgstr "Список разделенный запятыми"
+
+#: includes/mdocs-upload.php:447
+msgid "Add contributor, users and roles types are allowed."
+msgstr "Добавьте участников, пользователей и типы ролей."
+
+#: includes/mdocs-batch-file-methods.php:26
+msgid "Contributors"
+msgstr "Участники"
+
+#: includes/mdocs-batch-file-methods.php:111
+msgid "Downloadable by Non Members"
+msgstr "Загружаемо не членами"
+
+#: includes/mdocs-upload.php:582
+msgid "show social apps"
+msgstr "Показать социальные приложения"
+
+#: includes/mdocs-upload.php:562
+msgid "File Uploader"
+msgstr "Загрузчик файла"
+
+#: includes/mdocs-dashboard.php:3
+msgid "Memphis Docs"
+msgstr "Документы Memphis"
+
+#: includes/mdocs-categories.php:173 includes/mdocs-folders.php:173
+msgid "Input variables sent"
+msgstr "Вводимые переменные"
+
+#: includes/mdocs-categories.php:53 includes/mdocs-folders.php:53
+msgid "Save Folders"
+msgstr "Сохранить папки"
+
+#: includes/mdocs-categories.php:45 includes/mdocs-folders.php:45
+msgid "No folders created."
+msgstr "Папок не создано."
+
+#: includes/mdocs-find-lost-files.php:33 includes/mdocs-categories.php:21
+#: includes/mdocs-categories.php:29 includes/mdocs-folders.php:21
+#: includes/mdocs-folders.php:29 includes/mdocs-batch-file-methods.php:25
+#: includes/mdocs-batch-file-methods.php:114
+msgid "Folder"
+msgstr "Папка"
+
+#: includes/mdocs-batch-upload.php:212
+msgid "File Uploaded with No Errors."
+msgstr "Файл загружен без ошибок."
+
+#: includes/mdocs-batch-upload.php:211
+msgid "Mime Type Allowed => "
+msgstr "Разрешенный Mime-тип => "
+
+#: includes/mdocs-batch-upload.php:169
+msgid "Processed File => "
+msgstr "Обработанный файл => "
+
+#: includes/mdocs-batch-file-methods.php:253
+msgid "Previous Versions"
+msgstr "Предыдущие версии"
+
+#: includes/mdocs-batch-file-methods.php:222 includes/mdocs-functions.php:779
+msgid "Batch Delete"
+msgstr "Пакетное удаление"
+
+#: includes/mdocs-batch-file-methods.php:159 includes/mdocs-functions.php:776
+msgid "Batch Move"
+msgstr "Пакетное перемещение"
+
+#: includes/mdocs-upload.php:404 includes/mdocs-batch-file-methods.php:68
+msgid "Pending Review"
+msgstr "Ожидает оценки"
+
+#: includes/mdocs-upload.php:403 includes/mdocs-batch-file-methods.php:67
+msgid "Private"
+msgstr "Приватный"
+
+#: includes/mdocs-batch-file-methods.php:61
+msgid "Hidden"
+msgstr "Скрытый"
+
+#: includes/mdocs-batch-file-methods.php:60
+msgid "Public"
+msgstr "Публичный"
+
+#: includes/mdocs-allowed-file-types.php:39
+msgid "Restore Default File Types"
+msgstr "Восстановить типы файлов по умолчанию"
+
+#: includes/mdocs-allowed-file-types.php:21 includes/mdocs-update-mime.php:28
+msgid "Extension"
+msgstr "Расширение"
+
+#. Author of the plugin
+msgid "Ian Howatson"
+msgstr "Ian Howatson"
+
+#: includes/mdocs-settings-page.php:415
+msgid "Show upload contributors"
+msgstr "Показать участников загрузки"
+
+#: includes/mdocs-batch-upload.php:59
+msgid "NOTE: Depending on the amout of files, batch upload can take a long time, please be patient."
+msgstr "NOTE: В зависимости от количества файлов, пакетная загрузка может занять продолжительное время, будьте внимательны!"
+
+#: includes/mdocs-batch-upload.php:51
+msgid "Create a zip file of all the documents you want to upload.  You may name the file whatever you want.  Once you have created the file, simply upload it, then use the quick select form to place the files in the proper directory.  Once satisfied press the 'Complete' button to finsh the process."
+msgstr "Создайте zip-архив с документами, которые Вы хотите загрузить. Загрузите его и поместите в соответствующий каталог. Нажмите \"Завершить\"."
+
+#: includes/mdocs-batch-upload.php:46
+msgid "Batch Library Upload"
+msgstr "Пакетнаязагрузка в библиотеку"
+
+#: includes/mdocs-batch-file-methods.php:227
+msgid "Are you sure you want to delete these files"
+msgstr "Вы уверены, что хотите удалить эти файлы"
+
+#: includes/mdocs-upload.php:405 includes/mdocs-batch-file-methods.php:69
+msgid "Draft"
+msgstr "Черновик"
+
+#: includes/mdocs-upload.php:402 includes/mdocs-batch-file-methods.php:66
+msgid "Published"
+msgstr "Опубликован"
+
+#: includes/mdocs-settings-page.php:329
+msgid "Order Style:"
+msgstr "Порядок сортировки:"
+
+#: includes/mdocs-server-compatibility.php:135
+msgid "PHP5 cURL Installed"
+msgstr "PHP5 cURL установлен"
+
+#: includes/mdocs-server-compatibility.php:130
+msgid "Imagick Installed"
+msgstr "Imagick установлен"
+
+#: includes/mdocs-server-compatibility.php:125
+msgid "ZipArchive Installed"
+msgstr "ZipArchive установлен"
+
+#: includes/mdocs-localization.php:217
+msgid "No file was uploaded, please try again."
+msgstr "Файл не загружен. Попробуйте еще раз."
+
+#: includes/mdocs-localization.php:26
+msgid "Go grab a coffee this my take awhile."
+msgstr "Попейте кофе, операция может занять продолжительное время."
+
+#: includes/mdocs-functions.php:803
+msgid "Test Server Compatibility"
+msgstr "Проверка совместимости сервера"
+
+#: includes/mdocs-find-lost-files.php:7 includes/mdocs-functions.php:799
+msgid "Find Lost Files"
+msgstr "Найти потерянные файлы"
+
+#: includes/mdocs-filesystem-cleanup.php:90
+msgid "Cleanup The File System"
+msgstr "Очистить файловую систему"
+
+#: includes/mdocs-filesystem-cleanup.php:41
+#: includes/mdocs-filesystem-cleanup.php:75
+msgid "There are no unlinked files."
+msgstr "Несвязанных файлов не найдено."
+
+#. Description of the plugin
+msgid "A documents repository for WordPress."
+msgstr "Хранилище документов WordPress."
+
+#: includes/mdocs-versions.php:77
+msgid "Update To Revision"
+msgstr "Обновить до ревизии"
+
+#: includes/mdocs-the-list.php:10
+msgid "Unable to create the directory \"mdocs\" which is needed by Memphis Documents Library. Its parent directory is not writable by the server?"
+msgstr "Невозможно создать каталог \"mdocs\", необходимый для Memphis Documents Library. Возможно отсутствует доступ на запись."
+
+#: includes/mdocs-localization.php:240
+msgid "Last Modified"
+msgstr "Дата модификации"
+
+#: includes/mdocs-social.php:43
+msgid "This page is hidden to all users accepts admins."
+msgstr "Страница скрыта для всех кроме администраторов."
+
+#: includes/mdocs-shortcodes.php:33
+msgid "The Category Name"
+msgstr "Наименование категории"
+
+#: includes/mdocs-batch-file-methods.php:7 includes/mdocs-functions.php:773
+msgid "Batch Edit"
+msgstr "Пакетное редактирование"
+
+#: includes/mdocs-allowed-file-types.php:38
+msgid "List of Files and Their Mime Types"
+msgstr "Список файлов и их MIME типов"
+
+#: includes/mdocs-allowed-file-types.php:22 includes/mdocs-update-mime.php:29
+msgid "Mime Type"
+msgstr "MIME типы"
+
+#: includes/mdocs-allowed-file-types.php:14 includes/mdocs-functions.php:788
+msgid "Allowed File Types"
+msgstr "Допустимые типы файлов"
+
+#: includes/mdocs-batch-upload.php:233
+msgid "The batch process has completed, below is a log of results:"
+msgstr "Пакетная операция завершена, протокол выполнения см. ниже:"
+
+#: includes/mdocs-batch-upload.php:227
+msgid "Batch Process Complete."
+msgstr "Пакетная операция завершена."
+
+#: includes/mdocs-batch-upload.php:214 includes/mdocs-batch-upload.php:218
+msgid "File Was Not Uploaded because an Error occured."
+msgstr "Возникла ошибка, файл не загружен."
+
+#: includes/mdocs-batch-upload.php:217
+msgid " Unable to process file."
+msgstr "Невозможно обработать файл."
+
+#: includes/mdocs-batch-upload.php:217
+msgid "Invalid Mime Type => "
+msgstr "Неверный Mime тип =>"
+
+#: includes/mdocs-batch-upload.php:68 includes/mdocs-batch-upload.php:138
+#: includes/mdocs-batch-upload.php:243
+msgid "Upload Zip File"
+msgstr "Загрузить zip-файл"
+
+#: includes/mdocs-downloads.php:154
+msgid "Sorry you are unauthorized to download this file."
+msgstr "Вы не имеете прав на загрузку этого файла."
+
+#: includes/mdocs-downloads.php:82
+msgid "was not found, no preview created for this file."
+msgstr "не найден, предпросмотр для данного файла отсутствует."
+
+#: includes/mdocs-doc-preview.php:34
+msgid "Preview is not available for this file."
+msgstr "Предпросмотр для данного файла отсутствует."
+
+#: includes/mdocs-find-lost-files.php:80
+msgid "Congratulations, you have no lost files."
+msgstr "Потерянных файлов нет."
+
+#: includes/mdocs-find-lost-files.php:14
+msgid "Start File Search"
+msgstr "Начать поиск файлов"
+
+#: includes/mdocs-find-lost-files.php:13
+msgid "This process may take awhile so please be patient."
+msgstr "Операция может занять продолжительное время, пожалуйста, подождите."
+
+#: includes/mdocs-find-lost-files.php:11
+msgid "Click the button below to run a scan of your Memphis Documents file system.  This scan will find files that may have been lost or moved to unknown locations."
+msgstr ""
+"Нажмите кнопку ниже для сканирования файловой системы.\n"
+"Поиск найдет потерянные или перемещенные файлы."
+
+#: includes/mdocs-find-lost-files.php:10
+msgid "Sometime files may get lost, this process will allow you to find some of those lost files."
+msgstr "Иногда файлы могут \"теряться\", эта операция позволит их восстановить."
+
+#: includes/mdocs-server-compatibility.php:25
+#: includes/mdocs-server-compatibility.php:28
+msgid "The recommended value is 1000."
+msgstr "Рекомендованное значение - 1000."
+
+#: includes/mdocs-localization.php:28
+msgid "Export file creation complete, staring download of zip file."
+msgstr "Создание файла экспорта завершено, начинаю загрузку zip-файла."
+
+#: includes/mdocs-localization.php:27
+msgid "Creating the export file, please be patient."
+msgstr "Создание файла экспорта, ждите..."
+
+#: includes/mdocs-localization.php:25
+msgid "UPDATE HAS STARTER, DO NOT LEAVE THIS PAGE!"
+msgstr "Обновление начато, НЕ ПОКИДАЙТЕ ЭТУ СТРАНИЦУ!"
+
+#: includes/mdocs-localization.php:18
+msgid "Are you sure you want continue.  All you files, posts and directories will be delete."
+msgstr "Вы уверены, что хотите продолжить? Все файлы, публикации и каталоги будут УДАЛЕНЫ."
+
+#: includes/mdocs-localization.php:17
+msgid "Currently Memphis Documents Library only supports two sub categories."
+msgstr "Memphis Documents Library поддерживает 2 подкатегории."
+
+#: includes/mdocs-localization.php:16
+msgid "Are you sure you want to navigate away from this page?"
+msgstr "Вы действительно хотите покинуть данную страницу?"
+
+#: includes/mdocs-localization.php:12
+msgid ""
+"You are about to delete this version.  Once deleted you will lose this version of the file!\n"
+"\n"
+"'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Вы удаляете версию. При удалении вы потеряете данную версию файла!\n"
+"\n"
+"\"ОК\" для удаления."
+
+#: includes/mdocs-import.php:16 includes/mdocs-import.php:35
+msgid "Keep Existing Files"
+msgstr "Сохранить существующие файлы"
+
+#: includes/mdocs-import.php:12
+msgid "There are two type of imports you can choose from."
+msgstr "Выберите один из двух типов импорта."
+
+#: includes/mdocs-functions.php:1020
+msgid "Important, Please Read"
+msgstr "ВАЖНО! Пожалуйста, прочтите."
+
+#: includes/mdocs-functions.php:1019
+msgid "to work properly."
+msgstr "для корректной работы."
+
+#: includes/mdocs-restore-defaults.php:15 includes/mdocs-functions.php:801
+msgid "Restore To Default"
+msgstr "Восстановить умолчания"
+
+#: includes/mdocs-find-lost-files.php:105
+msgid "Find Lost Files Process Complete."
+msgstr "Операция поиска потерянных файлов завершена."
+
+#: includes/mdocs-find-lost-files.php:101
+msgid "A name conflict has occurred with the following file"
+msgstr "Обнаружен конфликт имен для следующего файла"
+
+#: includes/mdocs-post-page.php:18
+msgid "No documents found in the Trash"
+msgstr "Корзина пуста"
+
+#: includes/mdocs-localization.php:223
+msgid "The import file is too large, please update your php.ini files upload_max_filesize."
+msgstr "Импортируемый файл слишком большой. Отредактируйте php.ini, измените значение upload_max_filesize."
+
+#: includes/mdocs-versions.php:163 includes/mdocs-localization.php:222
+msgid "You are already at the most recent version of this document."
+msgstr "Это последняя версия текущего документа."
+
+#: includes/mdocs-localization.php:221
+msgid "File Upload Error.  Please try again."
+msgstr "Ошибка загрузки файла. Попробуйте снова."
+
+#: includes/mdocs-server-compatibility.php:110
+msgid "Your current max_input_vars value is"
+msgstr "Текущее значние max_input_vars "
+
+#: includes/mdocs-server-compatibility.php:110
+msgid "Recommended Maxim PHP Input Vars"
+msgstr "Рекомендованное значение Maxim PHP Input Vars"
+
+#: includes/mdocs-settings-page.php:412
+msgid "Show upload post status"
+msgstr "Показывать статус публикации"
+
+#: includes/mdocs-settings-page.php:411
+msgid "Show upload file status"
+msgstr "Показывать статус файла"
+
+#: includes/mdocs-settings-page.php:335
+msgid "Disable User Sort"
+msgstr "Заблокировать пользовательскую сортировку"
+
+#: includes/mdocs-settings-page.php:332
+msgid "Sort Ascending"
+msgstr "Сортировка по возрастанию"
+
+#: includes/mdocs-settings-page.php:331
+msgid "Sort Descending"
+msgstr "Сортировка по убыванию"
+
+#: includes/mdocs-server-compatibility.php:83
+msgid "Memphis Documents: Server Compatiability Check"
+msgstr "Memphis Documents: тест совместимости"
+
+#: includes/mdocs-server-compatibility.php:49
+msgid "Imagick is used to create pdf thumbnails."
+msgstr "Imagick используется для создания миниатюр pdf."
+
+#: includes/mdocs-server-compatibility.php:41
+msgid "ZipArchive is used in import, export and batch upload, it needs to be install in order for these to function."
+msgstr "ZipArchive используется при импорте, экспорте и пакетной загрузке, он должен быть установлен для работы этих функций."
+
+#: includes/mdocs-server-compatibility.php:99
+msgid "Wordpres upload direcotry read/write access"
+msgstr "Доступ к файлам для чтения/записи WordPress"
+
+#: includes/mdocs-settings-page.php:319
+msgid "Order Types:"
+msgstr "Типы сортировки:"
+
+#: includes/mdocs-patches.php:470
+msgid "Your Memphis <em>.htaccess</em> file has been updated to allow google.com access to the system.   This step is necessary to allow documents to be previewed."
+msgstr "Файл Memphis <em>.htaccess</em> был обновлен для предоставления доступа google.com к системе. Это необходимо для возможности предпросмотра."
+
+#: includes/mdocs-settings-page.php:413
+msgid "Show upload social"
+msgstr "Показать кнопки загрузки в соцсети"
+
+#: includes/mdocs-versions.php:24 includes/mdocs-versions.php:34
+#: includes/mdocs-versions.php:44 includes/mdocs-versions.php:61
+#: includes/mdocs-localization.php:236 includes/mdocs-doc-preview.php:300
+#: includes/mdocs-doc-preview.php:312 includes/mdocs-doc-preview.php:356
+#: includes/mdocs-rights.php:122 includes/mdocs-social.php:9
+#: includes/mdocs-social.php:31 includes/mdocs-show-file-info-templates.php:254
+#: includes/mdocs-post-page.php:130 includes/mdocs-settings-page.php:189
+msgid "Download"
+msgstr "Скачать"
+
+#: includes/mdocs-localization.php:38
+msgid "MDOCS DEVELOPMENT VERSION"
+msgstr "Версия MDOCS для разработчиков"
+
+#: includes/mdocs-localization.php:38
+msgid "[ ALL ERRORS ARE BEING REPORTED ]"
+msgstr "[ВСЕ ОШИБКИ ПОДЛЕЖАТ РАПОРТУ]"
+
+#: includes/mdocs-localization.php:29
+msgid "Sharing"
+msgstr "Поделиться"
+
+#: includes/mdocs-settings-page.php:313
+msgid "Show New & Updated Banner"
+msgstr "Показать метки \"Новый\" и \"Обновлен\""
+
+#. Plugin Name of the plugin
+#: includes/mdocs-dashboard.php:3 includes/mdocs-functions.php:1016
+msgid "Memphis Documents Library"
+msgstr "Memphis Documents Library"
+
+#: includes/mdocs-patches.php:484
+msgid "Your Memphis <em>Categories</em> have been counted to handle subcategories this should not effect your current file system in anyway.  If there is any issues please post a comment in the support forum of this plugin.  It is recommended to re-export your files again due to the new way categories are structured."
+msgstr "Ваши Memphis <em>категории</em> считаются как имеющие подкатегории. Это никак не должно отражаться на ваших файлах. Если возникли какие-либо проблемы, пожалуйста сообщите нам на форуме поддержки плагина. Рекомендуется сделать реэкспорт файлов ввиду новой структуры категорий."
+
+#: includes/mdocs-batch-file-methods.php:165
+msgid "Select the folder you want to transfer the files to"
+msgstr "Выберите папку в которую вы хотите переместить файлы"
+
+#: includes/mdocs-batch-upload.php:63 includes/mdocs-batch-upload.php:88
+#: includes/mdocs-batch-upload.php:132 includes/mdocs-batch-upload.php:238
+msgid "Default Folder"
+msgstr "Папка по умолчанию"
+
+#: includes/mdocs-batch-upload.php:223
+msgid "Cleaning up tmp folder and files"
+msgstr "Избавление от временных папок и файлов"
+
+#: includes/mdocs-categories.php:14 includes/mdocs-folder-editor.php:9
+#: includes/mdocs-folders.php:14
+msgid "Folder Editor"
+msgstr "Редактор папок"
+
+#: includes/mdocs-categories.php:24 includes/mdocs-categories.php:32
+#: includes/mdocs-categories.php:90 includes/mdocs-localization.php:19
+#: includes/mdocs-folders.php:24 includes/mdocs-folders.php:32
+#: includes/mdocs-folders.php:90
+msgid "Add Folder"
+msgstr "Добавить папку"
+
+#: includes/mdocs-find-lost-files.php:12
+msgid "Once the system scan is complete you will see a list of lost files,  select the folder you would like them to be transferred to and click the save button.  Once complete all the lost files will be visible again."
+msgstr "После завершения Вы увидите список потерянных файлов. Выберите папку, куда хотите их поместить и нажмите кнопку \"Сохранить\". Эти файлы больше не будут видны в \"потерянных\"."
+
+#: includes/mdocs-functions.php:787
+msgid "Edit Folders"
+msgstr "Редактировать папки"
+
+#: includes/mdocs-functions.php:824 includes/mdocs-settings-page.php:225
+msgid "Folders"
+msgstr "Папки"
+
+#: includes/mdocs-localization.php:13
+msgid ""
+"You are about to delete this folder.  Any file in this folder will be lost!\n"
+"\n"
+"'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Вы удаляете папку. Все файлы, находящиеся в ней, также будут удалены.\n"
+"\n"
+"\"Отмена\" для остановки. \"ОК\" для удаления."
+
+#: includes/mdocs-localization.php:224
+msgid "An error occurred when creating a folder, please try again."
+msgstr "Ошибка при создании папки. Попробуйте снова."
+
+#: includes/mdocs-settings-page.php:408
+msgid "Show upload folder"
+msgstr "Отображать папку загрузки"
+
+#: includes/mdocs-the-list.php:164
+msgid "No files found in this folder."
+msgstr "В данной папке файлы отсутствуют."
