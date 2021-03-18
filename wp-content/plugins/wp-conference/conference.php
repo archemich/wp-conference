@@ -58,17 +58,22 @@ class ConfPlugin
         require_once(CONFERENCE__PLUGIN_DIR . 'settings/settings.php');
         $this->$confSettings = new ConfSettings();
 
+        
+        require_once(CONFERENCE__PLUGIN_DIR . 'post_types/post_types.php');
+        $this->$confPostTypes = new ConfPostTypes();
+
+
+        require_once(CONFERENCE__PLUGIN_DIR . 'stats/stats.php');
+        $this->$confStats = new ConfStats();
+
+    
         if(get_option('conf_notifier')) {
             require_once(CONFERENCE__PLUGIN_DIR . 'notifier/notifier.php');
             $this->$confMail = new ConfNotifier();
         }
 
-        require_once(CONFERENCE__PLUGIN_DIR . 'stats/stats.php');
-        $this->$confStats = new ConfStats();
-
-       
-        require_once(CONFERENCE__PLUGIN_DIR . 'post_types/post_types.php');
-        $this->$confPostTypes = new ConfPostTypes();
+        require_once(CONFERENCE__PLUGIN_DIR . 'helper/helper.php');
+        $this->$confHelper = new ConfHelper();
     }
 }
 

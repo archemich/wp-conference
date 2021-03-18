@@ -13,6 +13,7 @@ class ConfStats
         add_action('init', array($this, 'export_users'));
         add_action('init', array($this, 'export_applications'));
         add_action('init', array($this, 'export_reports'));
+        add_action('init', array($this, 'export_coauthors'));
         add_action('admin_menu', array($this,'top_submenu'));
         
         wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
@@ -41,9 +42,11 @@ class ConfStats
             <form method="post" action="" name="applications" class="stats_form">
                 <input type="submit" name="export_applications" value="Скачать заявки">
             </form>
-            <form method="post" action="" name="report" class="stats_form">
-            
+            <form method="post" action="" name="reports" class="stats_form">
                 <input type="submit" name="export_reports" value="Скачать доклады">
+            </form>
+            <form method="post" action="" name="couathors" class="stats_form">
+                <input type="submit" name="export_coauthors" value="Скачать соавторов">
             </form>
         </div> 
         <?php
@@ -153,10 +156,11 @@ class ConfStats
             $active_sheet->setCellValue('A1', 'Конференция');
             $active_sheet->setCellValue('B1', 'Направление работы');
             $active_sheet->setCellValue('C1', 'Автор');
-            $active_sheet->setCellValue('D1', 'Название доклада');
-            $active_sheet->setCellValue('E1', 'Организация аббревиатура');
-            $active_sheet->setCellValue('F1', 'Город');
-            $active_sheet->setCellValue('G1', 'Статус');
+            $active_sheet->setCellValue('D1', 'Соавторы');
+            $active_sheet->setCellValue('E1', 'Название доклада');
+            $active_sheet->setCellValue('F1', 'Организация аббревиатура');
+            $active_sheet->setCellValue('G1', 'Город');
+            $active_sheet->setCellValue('H1', 'Статус');
             $row_index = 2;
 
             @mkdir($tempdir_path);
@@ -168,29 +172,39 @@ class ConfStats
             
                 $postmeta = get_post_meta($report->id);
                 $post_title = str_replace(' ','_',$report->post_title);
+                $coauthors = "";
+                
+                for ($i = 1; $i < 3; $i++) {
+                    if (!empty($postmeta["familiya_soavtor{$i}"][0]))
+                    $coauthors .= ', ' . $postmeta["familiya_soavtor{$i}"][0] . ' ' .$postmeta["imya_soavtor{$i}"][0] . '. ' .$postmeta["otchestvo_soavtor{$i}"][0];
+                }
+                $coauthors = substr($coauthors, 2);
+                
+                echo($coauthors);
+                $post_category = wp_get_post_terms($report->id, 'subject')[0];             
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
                 $ext = pathinfo($pdf_path)['extension'];
                 copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext);
-                $active_sheet->setCellValue('A'.$row_index, $postmeta['lokalnaya_conferencia'][0]);
-                $active_sheet->setCellValue('B'.$row_index, $postmeta['napravlenie'][0]);
+                $active_sheet->setCellValue('A'.$row_index, get_term($post_category->parent)->name);
+                $active_sheet->setCellValue('B'.$row_index, $post_category->name);
                 $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name. ' ' . $usermeta['otchestvo'][0]);
-                $active_sheet->setCellValue('D'.$row_index, $report->post_title);
-                $active_sheet->setCellValue('E'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
-                $active_sheet->setCellValue('F'.$row_index, $usermeta['gorod'][0]);
+                $active_sheet->setCellValue('D'.$row_index, $coauthors ? $coauthors : "");
+                $active_sheet->setCellValue('E'.$row_index, $report->post_title);
+                $active_sheet->setCellValue('F'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
+                $active_sheet->setCellValue('G'.$row_index, $usermeta['gorod'][0]);
                 if ($report->post_status == 'publish')
-                    $active_sheet->setCellValue('G'.$row_index, 'Принят');
+                    $active_sheet->setCellValue('H'.$row_index, 'Принят');
                 else if ($report->post_status == 'pending')
-                    $active_sheet->setCellValue('G'.$row_index, 'На модерации');
+                    $active_sheet->setCellValue('H'.$row_index, 'На модерации');
+                $active_sheet->setCellValue('I'.$row_index, $filename . '.' . $ext);
                 $row_index++;
-                }
+                
 
+                }
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save($tempdir_path.'/reports.xlsx');
             
-            
-            
-            
-           
+
 
             // header("Pragma: public");
             // header("Expires: 0");
@@ -203,6 +217,31 @@ class ConfStats
             // header("Content-Length: ".filesize($zippath));
             // @readfile($zippath);
 
+        }
+    }
+
+    public function export_coauthors()
+    {
+        if(isset($_POST['export_coauthors'])){
+            global $wpdb;
+            $res = $wpdb->get_results("SELECT display_name, user_email FROM wp_users;");
+            $doc = new Spreadsheet();
+            $active_sheet = $doc->getActiveSheet();
+            $active_sheet->setTitle("Users");
+            $active_sheet->setCellValue('A1', 'Name');
+            $active_sheet->setCellValue('B1', 'E-mail');
+            $row_index = 2;
+            foreach($res as $row) {
+                $active_sheet->setCellValue('A'.$row_index, $row->display_name);
+                $active_sheet->setCellValue('B'.$row_index, $row->user_email);
+                $row_index++;
+            }
+
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment;filename="conf_users'.date('d-m-y').'.xlsx"');
+            header('Cache-Control: max-age=0');
+            $writer = IOFactory::createWriter($doc, 'Xlsx');
+            $writer->save('php://output');
         }
     }
 }
