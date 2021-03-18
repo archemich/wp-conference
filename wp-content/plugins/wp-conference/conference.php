@@ -13,6 +13,11 @@ define( 'CONFERENCE__PLUGIN_URL', plugin_dir_url(__FILE__) );
 class ConfPlugin
 {
 
+    public $confMail = null;
+    public $confPostTypes = null;
+    public $confSettings = null;
+    public $confStats = null;
+
     public function __construct()
     {
       
