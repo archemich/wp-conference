@@ -1,2 +1,2 @@
-/stats/reports
-/stats/applications
+**/stats/reports/**
+**/uploads/**
