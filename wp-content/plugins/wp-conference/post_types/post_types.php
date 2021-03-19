@@ -1,6 +1,6 @@
 <?php
 
-class confPostTypes
+class ConfPostTypes
 {
     public function __construct()
     {

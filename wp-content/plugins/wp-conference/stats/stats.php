@@ -109,23 +109,23 @@ class ConfStats
 
             foreach($applications as $application) {
                 $user = get_userdata($application->post_author);
-                $usermeta = get_user_meta($user->id);
+                $postmeta = get_post_meta($application->id);
                 $active_sheet->setCellValue('A'.$row_index, $user->last_name);
                 $active_sheet->setCellValue('B'.$row_index, $user->first_name);
-                $active_sheet->setCellValue('C'.$row_index, $usermeta['otchestvo'][0]);
-                $active_sheet->setCellValue('D'.$row_index, $usermeta['data_rozhdenia'][0]);
-                $active_sheet->setCellValue('E'.$row_index, $usermeta['gorod'][0]);
-                $active_sheet->setCellValue('F'.$row_index, $usermeta['organizaciya'][0]);
-                $active_sheet->setCellValue('G'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
-                $active_sheet->setCellValue('H'.$row_index, $usermeta['dolzhnost'][0]);
-                $active_sheet->setCellValue('I'.$row_index, $usermeta['uchenaya_stepen'][0]);
-                $active_sheet->setCellValue('J'.$row_index, $usermeta['uchenoe_zvanie'][0]);
-                $active_sheet->setCellValue('K'.$row_index, $usermeta['telephon_rabochiy'][0]);
-                $active_sheet->setCellValue('L'.$row_index, $usermeta['telephon_conferencia'][0]);
-                $active_sheet->setCellValue('M'.$row_index, $usermeta['email'][0]);
-                $active_sheet->setCellValue('N'.$row_index, $usermeta['forma_uchastia'][0]);
-                $active_sheet->setCellValue('O'.$row_index, $usermeta['pechatnoe_izdanie'][0]);
-                $active_sheet->setCellValue('P'.$row_index, $usermeta['soglashenie'][0]);
+                $active_sheet->setCellValue('C'.$row_index, $postmeta['otchestvo'][0]);
+                $active_sheet->setCellValue('D'.$row_index, $postmeta['data_rozhdenia'][0]);
+                $active_sheet->setCellValue('E'.$row_index, $postmeta['gorod'][0]);
+                $active_sheet->setCellValue('F'.$row_index, $postmeta['organizaciya'][0]);
+                $active_sheet->setCellValue('G'.$row_index, $postmeta['organizaciya_abbreviatura'][0]);
+                $active_sheet->setCellValue('H'.$row_index, $postmeta['dolzhnost'][0]);
+                $active_sheet->setCellValue('I'.$row_index, $postmeta['uchenaya_stepen'][0]);
+                $active_sheet->setCellValue('J'.$row_index, $postmeta['uchenoe_zvanie'][0]);
+                $active_sheet->setCellValue('K'.$row_index, $postmeta['telephon_rabochiy'][0]);
+                $active_sheet->setCellValue('L'.$row_index, $postmeta['telephon_conferencia'][0]);
+                $active_sheet->setCellValue('M'.$row_index, $postmeta['email'][0]);
+                $active_sheet->setCellValue('N'.$row_index, $postmeta['forma_uchastia'][0]);
+                $active_sheet->setCellValue('O'.$row_index, $postmeta['pechatnoe_izdanie'][0]);
+                $active_sheet->setCellValue('P'.$row_index, $postmeta['soglashenie'][0]);
             
                 $row_index++;
                 }
@@ -161,6 +161,7 @@ class ConfStats
             $active_sheet->setCellValue('F1', 'Организация аббревиатура');
             $active_sheet->setCellValue('G1', 'Город');
             $active_sheet->setCellValue('H1', 'Статус');
+            $active_sheet->setCellValue('I1', 'Название файла');
             $row_index = 2;
 
             @mkdir($tempdir_path);
@@ -176,7 +177,7 @@ class ConfStats
                 
                 for ($i = 1; $i < 3; $i++) {
                     if (!empty($postmeta["familiya_soavtor{$i}"][0]))
-                    $coauthors .= ', ' . $postmeta["familiya_soavtor{$i}"][0] . ' ' .$postmeta["imya_soavtor{$i}"][0] . '. ' .$postmeta["otchestvo_soavtor{$i}"][0];
+                    $coauthors .= ', ' . $postmeta["familiya_soavtor{$i}"][0] . ' ' .$postmeta["imya_soavtor{$i}"][0] . $postmeta["otchestvo_soavtor{$i}"][0];
                 }
                 $coauthors = substr($coauthors, 2);
                 
@@ -224,21 +225,42 @@ class ConfStats
     {
         if(isset($_POST['export_coauthors'])){
             global $wpdb;
-            $res = $wpdb->get_results("SELECT display_name, user_email FROM wp_users;");
+            $reports = $wpdb->get_results('SELECT id, post_author, post_title FROM wp_posts WHERE post_type = "report";');
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
             $active_sheet->setTitle("Users");
-            $active_sheet->setCellValue('A1', 'Name');
-            $active_sheet->setCellValue('B1', 'E-mail');
+            $active_sheet->setCellValue('A1', 'Фамилия');
+            $active_sheet->setCellValue('B1', 'Имя');
+            $active_sheet->setCellValue('C1', 'Отчество');
+            $active_sheet->setCellValue('D1', 'Город');
+            $active_sheet->setCellValue('E1', 'Организация');
+            $active_sheet->setCellValue('F1', 'Должность');
+            $active_sheet->setCellValue('G1', 'Ученая степень');
+            $active_sheet->setCellValue('H1', 'Ученое звание');
+            $active_sheet->setCellValue('I1', 'Членство РАН');
+            $active_sheet->setCellValue('J1', 'E-Mail');
             $row_index = 2;
-            foreach($res as $row) {
-                $active_sheet->setCellValue('A'.$row_index, $row->display_name);
-                $active_sheet->setCellValue('B'.$row_index, $row->user_email);
-                $row_index++;
+            foreach($reports as $report) {
+                $postmeta = get_post_meta($report->id);
+                for($i = 1; $i <= 10; $i++) {
+                    if(!empty($postmeta["familiya_soavtor{$i}"][0])) {
+                        $active_sheet->setCellValue('A'.$row_index, $postmeta["familiya_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('B'.$row_index, $postmeta["imya_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('C'.$row_index, $postmeta["otchestvo_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('D'.$row_index, $postmeta["gorod_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('E'.$row_index, $postmeta["organizaciya_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('F'.$row_index, $postmeta["dolzhnost_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('G'.$row_index, $postmeta["uchenaya_stepen_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('H'.$row_index, $postmeta["uchenoe_zvanie_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('I'.$row_index, $postmeta["chlenstvo_ran_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('J'.$row_index, $postmeta["email_soavtor{$i}"][0]);
+                        $row_index++;
+                    }
+                }
             }
 
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment;filename="conf_users'.date('d-m-y').'.xlsx"');
+            header('Content-Disposition: attachment;filename="conf_coauthors'.date('d-m-y').'.xlsx"');
             header('Cache-Control: max-age=0');
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save('php://output');
