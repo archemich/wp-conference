@@ -177,7 +177,6 @@ class ConfStats
                 }
                 $coauthors = substr($coauthors, 2);
                 
-                echo($coauthors);
                 $post_category = wp_get_post_terms($report->id, 'subject')[0];             
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
                 $ext = pathinfo($pdf_path)['extension'];
