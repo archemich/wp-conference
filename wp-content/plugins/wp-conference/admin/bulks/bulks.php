@@ -19,23 +19,14 @@ class ConfBulks
         $redirect = remove_query_arg('conf_invitation_generated', $redirect );
 
         if ($doaction == 'generate_invitation') {
-            @mkdir(dirname(__FILE__) . '/temp');
-            $zip = new ZipArchive();
-            $filepath = dirname(__FILE__)."/temp/invitations.zip";
-            $zip->open($filepath, ZipArchive::CREATE);
             foreach ($userids as $userid) {
                 $userdata = get_userdata($userid);
                 $template = ConfTemplateEngine::generate_invitation($userdata->first_name);
-                $template->saveAs(dirname(__FILE__).'/temp/conf_inv'.$userid.$userdata->first_name.date('d-m-y').'.docx');
-                $zip->addFile(dirname(__FILE__).'/temp/conf_inv'.$userid.$userdata->first_name.date('d-m-y').'.docx', 'conf_inv'.$userid.$userdata->first_name.date('d-m-y').'.docx');
+                header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingm');
+                header('Content-Disposition: attachment;filename="conf_inv'.$userdata->first_name.date('d-m-y').'.docx"');
+                header('Cache-Control: max-age=0');
+                $template->saveAs('php://output');
             }
-            $zip->close();
-            header("Content-Type: application/zip");
-            header("Content-Disposition: attachment; filename=invitations.zip");
-            header("Content-Length: " . $filepath);
-
-            readfile($filepath);
-            removeDir(dirname(__FILE__).'/temp');
         }
     }
 }
