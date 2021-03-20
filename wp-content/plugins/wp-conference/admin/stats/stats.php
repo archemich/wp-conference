@@ -1,13 +1,9 @@
 <?php
-
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-
 class ConfStats 
 {
-    
-
     public function __construct()
     {
         add_action('init', array($this, 'export_users'));
@@ -17,25 +13,27 @@ class ConfStats
         add_action('admin_menu', array($this,'top_submenu'));
         
         wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
-
-
     }
+
 
     public function top_submenu() 
     {
         add_submenu_page(
             'conference_top',
-            'Conference Stats',
-            'Conference Stats',
+            'Статистика',
+            'Статистика',
             'manage_options',
             'conference_stats',
             array($this, 'top_submenu_html')
         );
     }
+
+
     public function top_submenu_html()
     {
         ?>
         <div class="wrap">
+            <h2>Conference Статитстика</h2>
             <form method="post" action="" name="users" class="stats_form">
                 <input type="submit" name="export_users" value="Скачать пользователей">
             </form>
@@ -78,13 +76,12 @@ class ConfStats
         }
     }
 
+
     public function export_applications()
     {
         if(isset($_POST['export_applications']))
         {
             global $wpdb;
-           
-            
             $applications = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "application";');
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
@@ -105,8 +102,8 @@ class ConfStats
             $active_sheet->setCellValue('N1', 'Форма участия');
             $active_sheet->setCellValue('O1', 'Хочет получить печатное издание');
             $active_sheet->setCellValue('P1', 'Ознакомлен с пользовательским соглашением');
+            
             $row_index = 2;
-
             foreach($applications as $application) {
                 $user = get_userdata($application->post_author);
                 $postmeta = get_post_meta($application->id);
@@ -126,7 +123,6 @@ class ConfStats
                 $active_sheet->setCellValue('N'.$row_index, $postmeta['forma_uchastia'][0]);
                 $active_sheet->setCellValue('O'.$row_index, $postmeta['pechatnoe_izdanie'][0]);
                 $active_sheet->setCellValue('P'.$row_index, $postmeta['soglashenie'][0]);
-            
                 $row_index++;
                 }
 
@@ -177,7 +173,7 @@ class ConfStats
                 
                 for ($i = 1; $i < 3; $i++) {
                     if (!empty($postmeta["familiya_soavtor{$i}"][0]))
-                    $coauthors .= ', ' . $postmeta["familiya_soavtor{$i}"][0] . ' ' .$postmeta["imya_soavtor{$i}"][0] . $postmeta["otchestvo_soavtor{$i}"][0];
+                    $coauthors .= ', ' . $postmeta["familiya_soavtor{$i}"][0] . ' ' .$postmeta["imya_soavtor{$i}"][0] . ' ' . $postmeta["otchestvo_soavtor{$i}"][0];
                 }
                 $coauthors = substr($coauthors, 2);
                 
@@ -204,8 +200,6 @@ class ConfStats
                 }
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save($tempdir_path.'/reports.xlsx');
-            
-
 
             // header("Pragma: public");
             // header("Expires: 0");
@@ -217,9 +211,9 @@ class ConfStats
             // header("Content-Transfer-Encoding: binary");
             // header("Content-Length: ".filesize($zippath));
             // @readfile($zippath);
-
         }
     }
+
 
     public function export_coauthors()
     {

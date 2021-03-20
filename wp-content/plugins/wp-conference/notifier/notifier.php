@@ -1,5 +1,4 @@
 <?php
-
 class ConfNotifier
 {
     public function __construct()
@@ -19,20 +18,17 @@ class ConfNotifier
             $message = "Ваша запись была опубликована:\n\n";
             $message .= $post_title . ": " . $post_url;
             wp_mail( get_option('admin_email'), $subject, $message );
-
         }
-        
-        
     }
     
+
     public function notificate_delete($post_id)
     {
         $post_title = get_the_title($post_id);
         $post_url = get_permalink( $post_id );
-
         $subject = 'Запись была отклонена';
-            $message = "Ваша запись была отклонена:\n\n";
-            $message .= $post_title . ": " . $post_url;
-            wp_mail( get_option('admin_email'), $subject, $message );
+        $message = "Ваша запись была отклонена:\n\n";
+        $message .= $post_title . ": " . $post_url;
+        wp_mail( get_option('admin_email'), $subject, $message );
     }
 }

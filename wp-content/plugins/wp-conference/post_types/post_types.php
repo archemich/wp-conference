@@ -1,5 +1,4 @@
 <?php
-
 class ConfPostTypes
 {
     public function __construct()
@@ -32,7 +31,6 @@ class ConfPostTypes
 
         ]);
 
-
         register_post_type('report', [
             'labels' => [
                 'name'               => 'Доклады',
@@ -54,8 +52,6 @@ class ConfPostTypes
             'show_in_admin_bar'     => true,
 
         ]);
-
-        
     }
 
 
