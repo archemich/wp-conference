@@ -19,14 +19,26 @@ class ConfBulks
         $redirect = remove_query_arg('conf_invitation_generated', $redirect );
 
         if ($doaction == 'generate_invitation') {
+            $zip = new ZipArchive();
+                $filename = "invitations.zip";
+                $tempdir = dirname(__FILE__).'\temp\\';
+                @mkdir($tempdir);
+                if ($zip->open($tempdir.$filename, ZipArchive::CREATE)!==TRUE) {
+                    die("Невозможно открыть <$tempdir.$filename>\n");
+                }
             foreach ($userids as $userid) {
                 $userdata = get_userdata($userid);
-                $template = ConfTemplateEngine::generate_invitation($userdata->first_name);
-                header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingm');
-                header('Content-Disposition: attachment;filename="conf_inv'.$userdata->first_name.date('d-m-y').'.docx"');
-                header('Cache-Control: max-age=0');
-                $template->saveAs('php://output');
+                $conference = 'РиМ-2021';
+                $template = ConfTemplateEngine::generate_invitation($userdata->first_name.' '.$userdata->last_name, $conference);
+                $template->saveAs($tempdir.$userid.'_inv.docx');
+                $zip->addFile($tempdir.$userid.'_inv.docx', $userid.'_inv.docx');
             }
+            $zip->close();
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment;filename="conf_invitations.zip"');
+            header('Cache-Control: max-age=0');
+            readfile($tempdir.$filename);
+            removeDir($tempdir);
         }
     }
 }
