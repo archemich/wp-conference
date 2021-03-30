@@ -1,10 +1,13 @@
 <?php
+
 class ConfNotifier
 {
     public function __construct()
     {
+       
         add_action('save_post', array($this, 'notificate_publish'));
         add_action('delete_post', array($this, 'notificate_delete'));
+       
     }
 
     
@@ -31,4 +34,17 @@ class ConfNotifier
         $message .= $post_title . ": " . $post_url;
         wp_mail( get_option('admin_email'), $subject, $message );
     }
+    
+
+    public static function send_test() {
+        
+        if(wp_mail( 'archemich@gmail.com','text','text' ))
+        {
+            return true;
+        }
+        return false;
+        
+    }
+
+
 }

@@ -11,10 +11,13 @@ class ConfStats
         add_action('init', array($this, 'export_reports'));
         add_action('init', array($this, 'export_coauthors'));
         add_action('admin_menu', array($this,'top_submenu'));
-        
-        wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
+        add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
     }
-
+    
+    public function my_scripts()
+    {
+        wp_enqueue_style( 'stats', plugin_dir_url( __FILE__ ) . 'css/stats.css' );
+    }
 
     public function top_submenu() 
     {
@@ -142,8 +145,14 @@ class ConfStats
             global $wpdb;
             $tempdir = 'reports';
             $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $zipname = 'reports.zip';
             if(is_dir($tempdir_path)) {
                 removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            $zip = new ZipArchive();
+            if ($zip->open($tempdir_path.'/'.$zipname, ZipArchive::CREATE)!==TRUE) {
+                die("Невозможно открыть <$tempdir.$zipname>\n");
             }
 
             $doc = new Spreadsheet();
@@ -160,12 +169,12 @@ class ConfStats
             $active_sheet->setCellValue('I1', 'Название файла');
             $row_index = 2;
 
-            @mkdir($tempdir_path);
+            
             $reports = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "report";');
             foreach($reports as $report) {
                 $pdf_path = wp_upload_dir()['basedir'] .'/'. $report->pdf_path;
                 $user = get_userdata($report->post_author);
-                $usermeta = get_user_meta($user->id);
+                $usermeta = get_user_meta($user->ID);
             
                 $postmeta = get_post_meta($report->id);
                 $post_title = str_replace(' ','_',$report->post_title);
@@ -180,36 +189,39 @@ class ConfStats
                 $post_category = wp_get_post_terms($report->id, 'subject')[0];             
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
                 $ext = pathinfo($pdf_path)['extension'];
-                copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext);
+                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                    $active_sheet->setCellValue('E'.$row_index, $report->post_title);
+                    $active_sheet->setCellValue('I'.$row_index, $filename . '.' . $ext);
+                }
+                else {
+                    $active_sheet->setCellValue('E'.$row_index, 'Доклад не найден');
+                    $active_sheet->setCellValue('I'.$row_index, 'Доклад не найден');
+
+                }
                 $active_sheet->setCellValue('A'.$row_index, get_term($post_category->parent)->name);
                 $active_sheet->setCellValue('B'.$row_index, $post_category->name);
-                $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name. ' ' . $usermeta['otchestvo'][0]);
+                $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
                 $active_sheet->setCellValue('D'.$row_index, $coauthors ? $coauthors : "");
-                $active_sheet->setCellValue('E'.$row_index, $report->post_title);
-                $active_sheet->setCellValue('F'.$row_index, $usermeta['organizaciya_abbreviatura'][0]);
-                $active_sheet->setCellValue('G'.$row_index, $usermeta['gorod'][0]);
+                $active_sheet->setCellValue('F'.$row_index, isset($usermeta['organizaciya_abbreviatura']) ? $usermeta['organizaciya_abbreviatura'][0] : '');
+                $active_sheet->setCellValue('G'.$row_index, isset($usermeta['gorod']) ? $usermeta['gorod'][0] : '');
                 if ($report->post_status == 'publish')
                     $active_sheet->setCellValue('H'.$row_index, 'Принят');
                 else if ($report->post_status == 'pending')
                     $active_sheet->setCellValue('H'.$row_index, 'На модерации');
-                $active_sheet->setCellValue('I'.$row_index, $filename . '.' . $ext);
                 $row_index++;
                 
-
+                $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
                 }
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save($tempdir_path.'/reports.xlsx');
-
-            // header("Pragma: public");
-            // header("Expires: 0");
-            // header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-            // header("Cache-Control: public");
-            // header("Content-Description: File Transfer");
-            // header("Content-type: application/zip");
-            // header("Content-Disposition: attachment; filename=".$zipname);
-            // header("Content-Transfer-Encoding: binary");
-            // header("Content-Length: ".filesize($zippath));
-            // @readfile($zippath);
+            $zip->addFile($tempdir_path.'/reports.xlsx','reports.xlsx');
+            $zip->close();
+            
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment;filename="reports.zip"');
+            header('Cache-Control: max-age=0');
+            @readfile($tempdir_path.'/'.$zipname);
+            @removeDir($tempdir_path);
         }
     }
 

@@ -1,0 +1,26 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+#gen_inv_block {
+    margin-right: 20px;
+}
+
+#gen_inv_block input {
+    margin: 5px 0;
+}
+
+.vl {
+    border-left: 2px solid rgb(158, 158, 158);
+}
+
+#template-uploader {
+    margin-left: 20px;
+}
+
+#template-uploader input {
+    display: block;
+    margin: 10px 0;
+} 
+

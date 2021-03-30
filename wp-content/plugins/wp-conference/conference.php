@@ -32,13 +32,13 @@ class ConfPlugin
     private function init_subplugins()
     {
         require_once(CONFERENCE__PLUGIN_DIR . 'post_types/post_types.php');
-        $this->$confPostTypes = new ConfPostTypes();
+        $this->confPostTypes = new ConfPostTypes();
     
-        if(get_option('conf_notifier')) {
+        if (get_option('conf_notifier')) {
             require_once(CONFERENCE__PLUGIN_DIR . 'notifier/notifier.php');
-            $this->$confNotifier = new ConfNotifier();
+            $this->confNotifier = new ConfNotifier();
         }
-
+        
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/admin.php');
         $this->confAdmin = new ConfAdmin();
     }

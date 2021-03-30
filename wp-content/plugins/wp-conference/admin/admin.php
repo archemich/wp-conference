@@ -47,18 +47,18 @@ class ConfAdmin
     private function init_subplugins()
     {
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/bulks/bulks.php');
-        $this->$confBulks = new ConfBulks();
+        $this->confBulks = new ConfBulks();
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/stats/stats.php');
-        $this->$confStats = new ConfStats();
+        $this->confStats = new ConfStats();
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/template_engine/template_engine.php');
-        $this->$confTemplateEngine = new ConfTemplateEngine();
+        $this->confTemplateEngine = new ConfTemplateEngine();
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/settings/settings.php');
-        $this->$confSettings = new ConfSettings();
+        $this->confSettings = new ConfSettings();
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/helper/helper.php');
-        $this->$confHelper = new ConfHelper();
+        $this->confHelper = new ConfHelper();
     }
 }
