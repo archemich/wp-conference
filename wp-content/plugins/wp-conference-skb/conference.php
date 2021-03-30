@@ -1,6 +1,11 @@
 <?php
-/**
+
+ /**
  * Plugin Name: Conference
+ * Description: Плагин для проведения конференций НИИ МВС ЮФУ
+ * Author URI:  http://kit.sfedu.ru/
+ * Author:      СКБ "КИТ"
+ * Version:     1.0
  */
 
 
@@ -38,7 +43,7 @@ class ConfPlugin
             require_once(CONFERENCE__PLUGIN_DIR . 'notifier/notifier.php');
             $this->confNotifier = new ConfNotifier();
         }
-        
+
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/admin.php');
         $this->confAdmin = new ConfAdmin();
     }
