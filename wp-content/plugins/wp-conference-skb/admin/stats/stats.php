@@ -10,6 +10,9 @@ class ConfStats
         add_action('init', array($this, 'export_applications'));
         add_action('init', array($this, 'export_reports'));
         add_action('init', array($this, 'export_coauthors'));
+        add_action('init', array($this, 'export_expert_opinions'));
+        add_action('init', array($this, 'export_identification_acts'));
+        add_action('init', array($this, 'export_consents'));
         add_action('admin_menu', array($this,'top_submenu'));
         add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
     }
@@ -48,6 +51,15 @@ class ConfStats
             </form>
             <form method="post" action="" name="couathors" class="stats_form">
                 <input type="submit" name="export_coauthors" value="Скачать соавторов">
+            </form>
+            <form method="post" action="" name="expert_opinion" class="stats_form">
+                <input type="submit" name="export_expert_opinions" value="Скачать экспертные заключения">
+            </form>
+            <form method="post" action="" name="identification_acts" class="stats_form">
+                <input type="submit" name="export_identification_acts" value="Скачать акты идентификационной экспертизы">
+            </form>
+            <form method="post" action="" name="consents" class="stats_form">
+                <input type="submit" name="export_consents" value="Скачать согласия на обработку персональных данных">
             </form>
         </div> 
         <?php
@@ -170,9 +182,9 @@ class ConfStats
             $row_index = 2;
 
             
-            $reports = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "report";');
+            $reports = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as doc_id, c.meta_value as doc_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "report";');
             foreach($reports as $report) {
-                $pdf_path = wp_upload_dir()['basedir'] .'/'. $report->pdf_path;
+                $doc_path = wp_upload_dir()['basedir'] .'/'. $report->doc_path;
                 $user = get_userdata($report->post_author);
                 $usermeta = get_user_meta($user->ID);
             
@@ -188,8 +200,8 @@ class ConfStats
                 
                 $post_category = wp_get_post_terms($report->id, 'subject')[0];             
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
-                $ext = pathinfo($pdf_path)['extension'];
-                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                $ext = pathinfo($doc_path)['extension'];
+                if(copy($doc_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
                     $active_sheet->setCellValue('E'.$row_index, $report->post_title);
                     $active_sheet->setCellValue('I'.$row_index, $filename . '.' . $ext);
                 }
@@ -218,8 +230,8 @@ class ConfStats
             $zip->close();
             
             header('Content-Type: application/zip');
-            header('Content-Disposition: attachment;filename="reports.zip"');
-            header('Cache-Control: max-age=0');
+            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
+            header("Content-Disposition: attachment;filename=\"${zipname}\"");
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -269,6 +281,117 @@ class ConfStats
             header('Cache-Control: max-age=0');
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save('php://output');
+        }
+    }
+
+    public function export_expert_opinions()
+    {
+        if(isset($_POST['export_expert_opinions']))
+        {
+            global $wpdb;
+            $tempdir = 'opinions';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $zipname = 'opinions.zip';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            $zip = new ZipArchive();
+            if ($zip->open($tempdir_path.'/'.$zipname, ZipArchive::CREATE)!==TRUE) {
+                die("Невозможно открыть <$tempdir.$zipname>\n");
+            }
+            $opinions = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "expert_opinion" AND meta_key = "_wp_attached_file";');
+            foreach($opinions as $opinion) {
+                $pdf_path = wp_upload_dir()['basedir'] .'/'. $opinion->pdf_path;
+                $user = get_userdata($opinion->post_author);
+                $filename =  $user->last_name.'_'. $user->first_name. '_экспертное_заключение';
+                $ext = pathinfo($pdf_path)['extension'];
+                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                    $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                }
+                
+            }
+            $zip->close();
+
+            header('Content-Type: application/zip');
+            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
+            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            @readfile($tempdir_path.'/'.$zipname);
+            @removeDir($tempdir_path);
+        }
+    }
+
+    public function export_identification_acts()
+    {
+        if(isset($_POST['export_identification_acts']))
+        {
+            global $wpdb;
+            $tempdir = 'identification_acts';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $zipname = 'identification_acts.zip';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            $zip = new ZipArchive();
+            if ($zip->open($tempdir_path.'/'.$zipname, ZipArchive::CREATE)!==TRUE) {
+                die("Невозможно открыть <$tempdir.$zipname>\n");
+            }
+            $identification_acts = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "identification_act" AND meta_key = "_wp_attached_file";');
+            foreach($identification_acts as $identification_act) {
+                $pdf_path = wp_upload_dir()['basedir'] .'/'. $identification_act->pdf_path;
+                $user = get_userdata($identification_act->post_author);
+                $filename =  $user->last_name.'_'. $user->first_name. '_акт_индитефикационной_экспертизы';
+                $ext = pathinfo($pdf_path)['extension'];
+                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                    $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                }
+                
+            }
+            $zip->close();
+            
+            header('Content-Type: application/zip');
+            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
+            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            @readfile($tempdir_path.'/'.$zipname);
+            @removeDir($tempdir_path);
+        }
+    }
+
+    public function export_consents()
+    {
+        if(isset($_POST['export_consents']))
+        {
+            global $wpdb;
+            $tempdir = 'consents';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $zipname = 'consents.zip';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            $zip = new ZipArchive();
+            if ($zip->open($tempdir_path.'/'.$zipname, ZipArchive::CREATE)!==TRUE) {
+                die("Невозможно открыть <$tempdir.$zipname>\n");
+            }
+            $consents = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "consent" AND meta_key = "_wp_attached_file";');
+            foreach($consents as $consent) {
+                $pdf_path = wp_upload_dir()['basedir'] .'/'. $consent->pdf_path;
+                $user = get_userdata($consent->post_author);
+                $filename =  $user->last_name.'_'. $user->first_name. '_согласие_на_обработку_персональных_данных';
+                $ext = pathinfo($pdf_path)['extension'];
+                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                    $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                }
+                
+            }
+            $zip->close();
+            
+            header('Content-Type: application/zip');
+            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
+            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            @readfile($tempdir_path.'/'.$zipname);
+            @removeDir($tempdir_path);
         }
     }
 }

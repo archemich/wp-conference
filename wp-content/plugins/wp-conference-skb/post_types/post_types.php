@@ -4,7 +4,7 @@ class ConfPostTypes
     public function __construct()
     {
         add_action('init', array($this, 'register_taxonomies'));
-        add_action('init', array($this,'register_post_types'));
+        add_action('init', array($this, 'register_post_types'));
     }
 
     public function register_post_types()
@@ -28,7 +28,14 @@ class ConfPostTypes
             'publicly_queryable'    => true,
             'exclude_from_search'   => true,
             'show_in_admin_bar'     => true,
-
+            'menu_position'         => 4,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
         ]);
 
         register_post_type('report', [
@@ -50,8 +57,104 @@ class ConfPostTypes
             'publicly_queryable'    => true,
             'exclude_from_search'   => true,
             'show_in_admin_bar'     => true,
+            'menu_position'         => 5,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+        ]);
+
+        register_post_type('expert_opinion', [
+            'labels' => [
+                'name'               => 'Экспертные заключения',
+                'singular_name'      => 'Экспертное заключение',
+                'add_new'            => 'Добавить новое',
+                'add_new_item'       => 'Добавить новое экспертное заключение',
+                'edit_item'          => 'Редактировать экспертное заключение',
+                'new_item'           => 'Новое экспертное заключение',
+                'view_item'          => 'Посмотреть экспертное заключение',
+                'search_items'       => 'Найти экспертное заключение',
+                'not_found'          => 'Экспертное заключение не найдено',
+                'not_found_in_trash' => 'В корзине экспертные заключения не найдены',
+                'parent_item_colon'  => '',
+                'menu_name'          => 'Экспертные заключения'
+            ],
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'exclude_from_search'   => true,
+            'show_in_admin_bar'     => true,
+            'menu_position'         => 6,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+        ]);
+        
+        register_post_type('identification_act', [
+            'labels' => [
+                'name'               => 'Акты идентификационной экспертизы',
+                'singular_name'      => 'Акт идентификационной экспертизы',
+                'add_new'            => 'Добавить новый',
+                'add_new_item'       => 'Добавить новый акт идентификационной экспертизы',
+                'edit_item'          => 'Редактировать акт идентификационной экспертизы',
+                'new_item'           => 'Новый акт идентификационной экспертизы',
+                'view_item'          => 'Посмотреть акт идентификационной экспертизы',
+                'search_items'       => 'Найти акт идентификационной экспертизы',
+                'not_found'          => 'Акт идентификационной экспертизы не найден',
+                'not_found_in_trash' => 'В корзине акты идентификационной экспертизы не найдены',
+                'parent_item_colon'  => '',
+                'menu_name'          => 'Акты идентификационной экспертизы'
+            ],
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'exclude_from_search'   => true,
+            'show_in_admin_bar'     => true,
+            'menu_position'         => 7,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
 
         ]);
+
+        register_post_type('consent', [
+            'labels' => [
+                'name'               => 'Согласия на обработку персональных данных',
+                'singular_name'      => 'Согласие',
+                'add_new'            => 'Добавить новое',
+                'add_new_item'       => 'Добавить новое согласие на обработку персональных данных',
+                'edit_item'          => 'Редактировать согласие на обработку персональных данных',
+                'new_item'           => 'Новое согласие на обработку персональных данных',
+                'view_item'          => 'Посмотреть согласие на обработку персональных данных',
+                'search_items'       => 'Найти согласие на обработку персональных данных',
+                'not_found'          => 'Согласие на обработку персональных данных не найдено',
+                'not_found_in_trash' => 'В корзине согласия на обработку персональных данных не найдены',
+                'parent_item_colon'  => '',
+                'menu_name'          => 'Согласия на обработку персональных данных'
+            ],
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'exclude_from_search'   => true,
+            'show_in_admin_bar'     => true,
+            'menu_position'         => 8,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+        ]);
+        
     }
 
 
@@ -71,7 +174,7 @@ class ConfPostTypes
                 'new_item_name'     => 'Новое имя направления',
                 'menu_name'         => 'Направления'
             ],
-            'public'            =>  true,
+            'public'            => true,
             'hierarchical'      => true,
             'publicy_queryable' => false,
         ]);
