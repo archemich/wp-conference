@@ -6,7 +6,7 @@ class ConfNotifier
     {
        
         add_action('save_post', array($this, 'notificate_publish'));
-        add_action('delete_post', array($this, 'notificate_delete'));
+        add_action('delete_post', array($this, 'notificate_delete')) ;
        
     }
 
@@ -15,13 +15,13 @@ class ConfNotifier
     {
         $post_title = get_the_title($post_id);
         $post_url = get_permalink( $post_id ); 
-        if(get_post_status($post_id) == 'pending')
-        {
+        if (get_post_status($post_id) == 'pending') {
             $subject = 'Запись была опубликована';
             $message = "Ваша запись была опубликована:\n\n";
             $message .= $post_title . ": " . $post_url;
             wp_mail( get_option('admin_email'), $subject, $message );
         }
+        
     }
     
 
@@ -29,10 +29,12 @@ class ConfNotifier
     {
         $post_title = get_the_title($post_id);
         $post_url = get_permalink( $post_id );
-        $subject = 'Запись была отклонена';
-        $message = "Ваша запись была отклонена:\n\n";
-        $message .= $post_title . ": " . $post_url;
-        wp_mail( get_option('admin_email'), $subject, $message );
+        if (get_post_status($post_id) == 'pending') {
+            $subject = 'Запись была отклонена';
+            $message = "Ваша запись была отклонена:\n\n";
+            $message .= $post_title . ": " . $post_url;
+            wp_mail( get_option('admin_email'), $subject, $message );
+        }
     }
     
 

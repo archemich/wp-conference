@@ -13,6 +13,8 @@ class ConfStats
         add_action('init', array($this, 'export_expert_opinions'));
         add_action('init', array($this, 'export_identification_acts'));
         add_action('init', array($this, 'export_consents'));
+        add_action('init', array($this, 'export_arrival_information'));
+
         add_action('admin_menu', array($this,'top_submenu'));
         add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
     }
@@ -60,6 +62,9 @@ class ConfStats
             </form>
             <form method="post" action="" name="consents" class="stats_form">
                 <input type="submit" name="export_consents" value="Скачать согласия на обработку персональных данных">
+            </form>
+            <form method="post" action="" name="arrival_information" class="stats_form">
+                <input type="submit" name="export_arrival_information" value="Скачать информацию о прибытии">
             </form>
         </div> 
         <?php
@@ -392,6 +397,53 @@ class ConfStats
             header("Content-Disposition: attachment;filename=\"${zipname}\"");
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
+        }
+    }
+
+    public function export_arrival_information()
+    {
+        if(isset($_POST['export_arrival_information']))
+        {
+
+        global $wpdb;
+            $arrival_informations = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "arrival_information";');
+            $doc = new Spreadsheet();
+            $active_sheet = $doc->getActiveSheet();
+            $active_sheet->setTitle("Информация о прибытии");
+            $active_sheet->setCellValue('A1', 'ФИО');
+            $active_sheet->setCellValue('B1', 'Приезд');
+            $active_sheet->setCellValue('C1', 'Город приезда');
+            $active_sheet->setCellValue('D1', 'Дата приезда');
+            $active_sheet->setCellValue('E1', 'Планируемое время приезда');
+            $active_sheet->setCellValue('F1', 'Отъезд');
+            $active_sheet->setCellValue('G1', 'Город отъезда');
+            $active_sheet->setCellValue('H1', 'Дата отъезда');
+            $active_sheet->setCellValue('I1', 'Планируемое время отъезда');
+            
+            $row_index = 2;
+            foreach($arrival_informations as $arrival_information) {
+                $postmeta = get_post_meta($arrival_information->id);
+                $usermeta = get_user_meta($arrival_information->post_author);
+                if(!empty($usermeta->first_name)) $active_sheet->setCellValue('A'.$row_index, $usermeta->last_name. ' '. $usermeta->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
+                else $active_sheet->setCellValue('A'.$row_index, $usermeta->display_name);
+                $active_sheet->setCellValue('B'.$row_index, isset($postmeta['priezd']) ? $postmeta['priezd'] : '');
+                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['gorod_priezda']) ? $postmeta[''] : 'gorod_priezda');
+                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_priezda']) ? $postmeta['data_priezda'] : '');
+                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['planiruemoe_vremya_priezda']) ? $postmeta['planiruemoe_vremya_priezda'] : '');
+                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['otezd']) ? $postmeta['otezd'] : '');
+                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['gorod_otezda']) ? $postmeta['gorod_otezda'] : '');
+                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['data_otezda']) ? $postmeta['data_otezda'] : '');
+                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['planiruemoe_vremya_otezda']) ? $postmeta['planiruemoe_vremya_otezda'] : '');
+
+                $row_index++;
+            }
+            
+
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment;filename="conf_arrival_information'.date('d-m-y').'.xlsx"');
+            header('Cache-Control: max-age=0');
+            $writer = IOFactory::createWriter($doc, 'Xlsx');
+            $writer->save('php://output');
         }
     }
 }

@@ -154,6 +154,36 @@ class ConfPostTypes
             'has_archive'           => true,
             'hierarchical'          => false,
         ]);
+
+        register_post_type('arrival_information', [
+            'labels' => [
+                'name'               => 'Информация о прибытии',
+                'singular_name'      => 'Информация о прибытии',
+                'add_new'            => 'Добавить новую',
+                'add_new_item'       => 'Добавить новую информацию о прибытии',
+                'edit_item'          => 'Редактировать информацию о прибытии',
+                'new_item'           => 'Новая информация о прибытии',
+                'view_item'          => 'Посмотреть информацию о прибытии',
+                'search_items'       => 'Найти информацию о прибытии',
+                'not_found'          => 'Информация о прибытии не найдена',
+                'not_found_in_trash' => 'В корзине информация о прибытии не найдена',
+                'parent_item_colon'  => '',
+                'menu_name'          => 'Информация о прибытия'
+            ],
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'exclude_from_search'   => true,
+            'show_in_admin_bar'     => true,
+            'menu_position'         => 8,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+
+        ]);
         
     }
 

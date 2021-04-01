@@ -16,7 +16,8 @@ class ConfTemplateEngine
 
     public function my_scripts() 
     {
-        wp_enqueue_style( 'template_engine_ui_css', plugin_dir_url( __FILE__ ) . 'css/template_engine_ui.css' );
+        wp_register_style( 'template_engine_ui_css', plugin_dir_url(__FILE__) . '/css/template_engine_ui.css' );
+        wp_enqueue_style( 'template_engine_ui_css');
         wp_enqueue_script( 'template_engine_ui_js'. plugin_dir_url( __FILE__ ) . 'js/template_engine_ui.js');
     }
 

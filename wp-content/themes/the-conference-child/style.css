@@ -1,0 +1,22 @@
+/*
+Theme Name: The Conference Child Theme
+Template: the-conference
+
+Не обязательные параметры:
+Description: Дочерняя тема для темы The Conference
+Version: 1.0
+*/
+
+/* импортируем стили родительской темы */
+@import url("../the-conference/style.css");
+
+/* Свои дополнительные стили */
+
+header.site-header {
+    z-index: 10;
+}
+
+.main-navigation ul li {
+    text-transform: none;
+}
+
