@@ -201,19 +201,19 @@ class ConfStats
                 $post_category = wp_get_post_terms($report->id, 'subject')[0];             
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
                 $ext = pathinfo($doc_path)['extension'];
-                if(copy($doc_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
-                    $active_sheet->setCellValue('E'.$row_index, $report->post_title);
+                if (file_exists($doc_path)) {
+                    copy($doc_path, $tempdir_path .'/' . $filename .'.'. $ext);
                     $active_sheet->setCellValue('I'.$row_index, $filename . '.' . $ext);
                 }
                 else {
-                    $active_sheet->setCellValue('E'.$row_index, 'Доклад не найден');
-                    $active_sheet->setCellValue('I'.$row_index, 'Доклад не найден');
-
+                    $active_sheet->setCellValue('I'.$row_index, 'Доклад не найден');    
                 }
                 $active_sheet->setCellValue('A'.$row_index, get_term($post_category->parent)->name);
                 $active_sheet->setCellValue('B'.$row_index, $post_category->name);
-                $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
+                if(!empty($usermeta->first_name)) $active_sheet->setCellValue('C'.$row_index, $usermeta->last_name. ' '. $usermeta->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
+                else $active_sheet->setCellValue('C'.$row_index, $user->display_name);
                 $active_sheet->setCellValue('D'.$row_index, $coauthors ? $coauthors : "");
+                $active_sheet->setCellValue('E'.$row_index, $report->post_title);
                 $active_sheet->setCellValue('F'.$row_index, isset($usermeta['organizaciya_abbreviatura']) ? $usermeta['organizaciya_abbreviatura'][0] : '');
                 $active_sheet->setCellValue('G'.$row_index, isset($usermeta['gorod']) ? $usermeta['gorod'][0] : '');
                 if ($report->post_status == 'publish')

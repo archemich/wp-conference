@@ -1872,7 +1872,7 @@ header.site-header {
   left: 0;
   right: 0;
   top: 0;
-  z-index: 999;
+  z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 20px;
   padding-bottom: 20px;
@@ -1958,7 +1958,7 @@ button.toggle-btn {
   vertical-align: middle;
   font-weight: 700;
   font-size: 0.778em;
-  text-transform: capitalize;
+  text-transform: none;
   position: relative;
   letter-spacing: 1;
 }
