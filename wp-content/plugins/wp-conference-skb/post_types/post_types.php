@@ -24,9 +24,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Заявки'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 4,
             'show_ui'               => true,
@@ -53,9 +51,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Доклады'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 5,
             'show_ui'               => true,
@@ -82,9 +78,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Экспертные заключения'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 6,
             'show_ui'               => true,
@@ -111,9 +105,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Акты идентификационной экспертизы'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 7,
             'show_ui'               => true,
@@ -141,9 +133,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Согласия на обработку персональных данных'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 8,
             'show_ui'               => true,
@@ -170,9 +160,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Информация о прибытия'
             ],
-            'public'                => true,
-            'publicly_queryable'    => true,
-            'exclude_from_search'   => true,
+            'public'                => false,
             'show_in_admin_bar'     => true,
             'menu_position'         => 8,
             'show_ui'               => true,
@@ -183,6 +171,34 @@ class ConfPostTypes
             'has_archive'           => true,
             'hierarchical'          => false,
 
+        ]);
+        
+        
+        register_post_type('contract', [
+            'labels' => [
+                'name'               => 'Договор',
+                'singular_name'      => 'Договор',
+                'add_new'            => 'Договоры',
+                'add_new_item'       => 'Добавить новый договор',
+                'edit_item'          => 'Редактировать договор',
+                'new_item'           => 'Новый договор',
+                'view_item'          => 'Посмотреть договор',
+                'search_items'       => 'Найти договор',
+                'not_found'          => 'Договор не найден',
+                'not_found_in_trash' => 'В корзине договоры не найдена',
+                'parent_item_colon'  => '',
+                'menu_name'          => 'Договоры'
+            ],
+            'public'                => false,
+            'show_in_admin_bar'     => true,
+            'menu_position'         => 8,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => true,
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
         ]);
         
     }

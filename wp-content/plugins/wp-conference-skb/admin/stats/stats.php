@@ -163,6 +163,7 @@ class ConfStats
             $tempdir = 'reports';
             $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
             $zipname = 'reports.zip';
+
             if(is_dir($tempdir_path)) {
                 removeDir($tempdir_path);
             }
@@ -203,7 +204,7 @@ class ConfStats
                 }
                 $coauthors = substr($coauthors, 2);
                 
-                $post_category = wp_get_post_terms($report->id, 'subject')[0];             
+                $post_category = wp_get_post_terms($report->id, 'subject')[0];
                 $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
                 $ext = pathinfo($doc_path)['extension'];
                 if (file_exists($doc_path)) {
@@ -233,10 +234,11 @@ class ConfStats
             $writer->save($tempdir_path.'/reports.xlsx');
             $zip->addFile($tempdir_path.'/reports.xlsx','reports.xlsx');
             $zip->close();
-            
+
             header('Content-Type: application/zip');
             header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
             header("Content-Disposition: attachment;filename=\"${zipname}\"");
+
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -444,6 +446,43 @@ class ConfStats
             header('Cache-Control: max-age=0');
             $writer = IOFactory::createWriter($doc, 'Xlsx');
             $writer->save('php://output');
+        }
+    }
+
+    public function export_contracts()
+    {
+        if(isset($_POST['export_contracts']))
+        {
+            global $wpdb;
+            $tempdir = 'contracts';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $zipname = 'contracts.zip';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            $zip = new ZipArchive();
+            if ($zip->open($tempdir_path.'/'.$zipname, ZipArchive::CREATE)!==TRUE) {
+                die("Невозможно открыть <$tempdir.$zipname>\n");
+            }
+            $contracts = $wpdb->get_results('SELECT a.id, a.post_author, a.post_title, a.post_status, b.id as pdf_id, c.meta_value as pdf_path FROM wp_posts a JOIN wp_posts b on b.post_parent = a.id JOIN wp_postmeta c ON c.post_id = b.id WHERE a.post_type = "contract" AND meta_key = "_wp_attached_file";');
+            foreach($contracts as $contract) {
+                $pdf_path = wp_upload_dir()['basedir'] .'/'. $contract->pdf_path;
+                $user = get_userdata($contract->post_author);
+                $filename =  $user->last_name.'_'. $user->first_name. '_согласие_на_обработку_персональных_данных';
+                $ext = pathinfo($pdf_path)['extension'];
+                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                    $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                }
+                
+            }
+            $zip->close();
+            
+            header('Content-Type: application/zip');
+            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
+            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            @readfile($tempdir_path.'/'.$zipname);
+            @removeDir($tempdir_path);
         }
     }
 }

@@ -20,3 +20,7 @@ header.site-header {
     text-transform: none;
 }
 
+
+button.toggle-btn {
+    z-index: 4;
+}

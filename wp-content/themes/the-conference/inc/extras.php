@@ -434,19 +434,24 @@ function the_conference_breadcrumb() {
                             }
                         }
                         
-                        $cat = $cat_object[$use_term];
-                  
-                        $cats = get_category_parents( $cat, false, ',' );
-                        $cats = explode( ',', $cats );
+                        if(isset($use_term)) {
 
-                        foreach ( $cats as $cat ) {
-                            $cat_obj = get_term_by( 'name', $cat, 'category' );
-                            if( is_object( $cat_obj ) ){
-                                $term_url    = get_term_link( $cat_obj->term_id );
-                                $term_name   = $cat_obj->name;
-                                echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="' . esc_url( $term_url ) . '"><span itemprop="name">' . esc_html( $term_name ) . '</span></a><meta itemprop="position" content="'. absint( $depth ).'" /><span class="separator">' . $delimiter . '</span></span>';
-                                $depth ++;
-                            }
+                        
+                            $cat = $cat_object[$use_term];
+                    
+                            $cats = get_category_parents( $cat, false, ',' );
+                            $cats = explode( ',', $cats );
+
+                            foreach ( $cats as $cat ) {
+                                $cat_obj = get_term_by( 'name', $cat, 'category' );
+                                if( is_object( $cat_obj ) ){
+                                    $term_url    = get_term_link( $cat_obj->term_id );
+                                    $term_name   = $cat_obj->name;
+                                    echo '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="' . esc_url( $term_url ) . '"><span itemprop="name">' . esc_html( $term_name ) . '</span></a><meta itemprop="position" content="'. absint( $depth ).'" /><span class="separator">' . $delimiter . '</span></span>';
+                                    $depth ++;
+                                }
+                     
+                            }  
                         }
                     }
         
