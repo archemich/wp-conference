@@ -134,10 +134,10 @@ class ConfTemplateEngine
         if (isset($_POST['generate_invitation_for_user']))
         {
             $templateProcessor = new TemplateProcessor(dirname(__FILE__).'/Template.docx');
-            isset($_POST['user']) ?? $templateProcessor->setValue('name', $_POST['user']);
-            isset($_POST['initials']) ?? $templateProcessor->setValue('initials', $_POST['initials']);
-            isset($_POST['conference']) ?? $templateProcessor->setValue('conference', $_POST['conference']);
-            isset($_POST['report_name']) ?? $templateProcessor->setValue('report_name', $_POST['report_name']);
+            if(isset($_POST['username'])) $templateProcessor->setValue('name', $_POST['username']);
+            if(isset($_POST['initials'])) $templateProcessor->setValue('initials', $_POST['initials']);
+            if(isset($_POST['conference'])) $templateProcessor->setValue('conference', $_POST['conference']);
+            if(isset($_POST['report_name'])) $templateProcessor->setValue('report_name', $_POST['report_name']);
 
             header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
             header('Content-Disposition: attachment;filename="conf_invitation'.$_POST['user'].'.docx"');
