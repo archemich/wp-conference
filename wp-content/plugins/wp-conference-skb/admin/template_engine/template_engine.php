@@ -46,15 +46,16 @@ class ConfTemplateEngine
                     <form name ="generate_inv" action="" method="post">
                         <div class="users-list">
                             <?php $users = get_users();
-                            ?>Имя пользователя <input name="user" list="user">
+                            ?>Имя пользователя <input name="username" list="user">
                             <datalist id="user"><?php
                             foreach($users as $user) {   
                                     $userdata = get_userdata($user->id); 
+                                    $usermeta = get_user_meta($user->id);
                                     ?>
                                     <option value=
                                     <?php echo "\"";
                                     if (!empty($userdata->first_name) && !empty($userdata->last_name)) {
-                                        echo $userdata->first_name.' '.$userdata->last_name; 
+                                        echo $userdata->first_name.' '. (isset($usermeta['otchestvo'][0]) ? ($usermeta['otchestvo'][0]). ' ' : '') .$userdata->last_name; 
                                     }
                                     else {echo $userdata->display_name;}
                                     echo "\"";
@@ -63,10 +64,14 @@ class ConfTemplateEngine
                             ?>
                             </datalist>
                         </div>
+                        <div class="initials">
+                        Инициалы <input type="text" name="initials" id="">
+                        </div>
                         <div class="conference-list">
                             <?php $conferences = get_categories( [
                                 'taxonomy' => 'subject',
                                 'hide_empty' => false,
+                                'parent' => 0,
                                 'hierarchical' => true,
                                 'orderby' => 'parent']);
                             ?>Конференция <input name="conference" list="conference">
@@ -82,6 +87,31 @@ class ConfTemplateEngine
                             }
                             ?>
                             </datalist>
+                        </div>
+
+                        <div class="subject-list">
+                            <?php $subjects = get_categories( [
+                                'taxonomy' => 'subject',
+                                'hide_empty' => false,
+                                'child_of' => 0,
+                                'hierarchical' => true,
+                                'orderby' => 'parent']);
+                            ?>Направления <input name="subject" list="subjects">
+                            <datalist id="subjects"><?php
+                            foreach($subjects as $subject) {
+                                    ?>
+                                    <option value=
+                                    <?php 
+                                    echo "\"";
+                                    echo $subject->name;
+                                    echo "\"";
+                                    ?>></option><?php
+                            }
+                            ?>
+                            </datalist>
+                        </div>
+                        <div class="report_name">
+                            Название доклада <input type="text" name="report_name" id="">
                         </div>
                         <input type="submit" name="generate_invitation_for_user" value="Сгенерировать приглашение">
                     </form>
@@ -101,12 +131,14 @@ class ConfTemplateEngine
     
     public function generate_invitation_for_user()
     {
-        if (isset($_POST['generate_invitation_for_user']) 
-        && (isset($_POST['user'])) && isset($_POST['conference']))
+        if (isset($_POST['generate_invitation_for_user']))
         {
             $templateProcessor = new TemplateProcessor(dirname(__FILE__).'/Template.docx');
-            $templateProcessor->setValue('name', $_POST['user']);
-            $templateProcessor->setValue('conference', $_POST['conference']);
+            isset($_POST['user']) ?? $templateProcessor->setValue('name', $_POST['user']);
+            isset($_POST['initials']) ?? $templateProcessor->setValue('initials', $_POST['initials']);
+            isset($_POST['conference']) ?? $templateProcessor->setValue('conference', $_POST['conference']);
+            isset($_POST['report_name']) ?? $templateProcessor->setValue('report_name', $_POST['report_name']);
+
             header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
             header('Content-Disposition: attachment;filename="conf_invitation'.$_POST['user'].'.docx"');
             header('Cache-Control: max-age=0');
@@ -126,11 +158,13 @@ class ConfTemplateEngine
     }
 
 
-    public static function generate_invitation($name, $conference)
+    public static function generate_invitation($name = null, $initials = null, $conference = null, $subject = null, $report_name = null)
     {
             $templateProcessor = new TemplateProcessor(dirname(__FILE__).'/Template.docx');
-            $templateProcessor->setValue('name', $name);
-            $templateProcessor->setValue('conference', $conference);
+            isset($name) ?? $templateProcessor->setValue('name', $name);
+            isset($initials) ?? $templateProcessor->setValue('initials', $initials);
+            isset($conference) ?? $templateProcessor->setValue('conference', $conference);
+            isset($report_name) ?? $templateProcessor->setValue('report_name', $report_name);
 
             return $templateProcessor;
     }

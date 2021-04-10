@@ -5,7 +5,6 @@ class ConfAdmin
     public $confSettings = null;
     public $confStats = null;
     public $confTemplateEngine = null;
-    public $confBulks = null;
 
 
     public function __construct()
@@ -46,9 +45,6 @@ class ConfAdmin
 
     private function init_subplugins()
     {
-        require_once(CONFERENCE__PLUGIN_DIR . 'admin/bulks/bulks.php');
-        $this->confBulks = new ConfBulks();
-
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/stats/stats.php');
         $this->confStats = new ConfStats();
 
