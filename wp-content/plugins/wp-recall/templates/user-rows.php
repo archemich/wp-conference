@@ -15,8 +15,5 @@
 			<?php rcl_user_rayting(); ?>
         </div>
 
-        <div class="user-content-rcl">
-			<?php rcl_user_description(); ?>
-        </div>
     </div>
 </div>
