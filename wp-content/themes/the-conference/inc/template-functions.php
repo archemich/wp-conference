@@ -324,6 +324,7 @@ if( ! function_exists( 'the_conference_navigation' ) ) :
  * Navigation
 */
 function the_conference_navigation(){
+    return;
     if( is_single() ){
         $previous = get_previous_post_link(
     		'<div class="nav-previous nav-holder">%link</div>',
