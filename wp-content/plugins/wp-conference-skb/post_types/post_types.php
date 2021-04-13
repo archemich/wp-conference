@@ -24,7 +24,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Заявки'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 4,
             'show_ui'               => true,
@@ -51,7 +51,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Доклады'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 5,
             'show_ui'               => true,
@@ -78,7 +78,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Экспертные заключения'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 6,
             'show_ui'               => true,
@@ -105,7 +105,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Акты идентификационной экспертизы'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 7,
             'show_ui'               => true,
@@ -133,7 +133,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Согласия на обработку персональных данных'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 8,
             'show_ui'               => true,
@@ -160,7 +160,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Информация о прибытия'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 8,
             'show_ui'               => true,
@@ -189,7 +189,7 @@ class ConfPostTypes
                 'parent_item_colon'  => '',
                 'menu_name'          => 'Договоры'
             ],
-            'public'                => false,
+            'public'                => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 8,
             'show_ui'               => true,
