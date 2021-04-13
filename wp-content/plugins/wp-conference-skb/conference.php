@@ -4,7 +4,7 @@
  * Plugin Name: Conference
  * Description: Плагин для проведения конференций НИИ МВС ЮФУ
  * Requires at least: 5.6
- * Requires PHP:      7.4.9
+ * Requires PHP:      7.3.21
  * Author URI:  http://kit.sfedu.ru/
  * Author:      СКБ "КИТ"
  * Version:     1.0

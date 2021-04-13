@@ -178,7 +178,7 @@ class ConfPostTypes
             'labels' => [
                 'name'               => 'Договор',
                 'singular_name'      => 'Договор',
-                'add_new'            => 'Договоры',
+                'add_new'            => 'Добавить новый',
                 'add_new_item'       => 'Добавить новый договор',
                 'edit_item'          => 'Редактировать договор',
                 'new_item'           => 'Новый договор',
