@@ -1,0 +1,21 @@
+.forms_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+
+}
+.stats_form {
+    margin: 3px 3px;
+}
+
+.submit-btn {
+    border-width: 1px;
+    border-radius: 4px;
+}
+
+.submit-btn:hover {
+    background-color:rgb(226, 226, 226);
+}

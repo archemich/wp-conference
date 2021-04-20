@@ -14,15 +14,14 @@ class ConfStats
         add_action('init', array($this, 'export_identification_acts'));
         add_action('init', array($this, 'export_consents'));
         add_action('init', array($this, 'export_arrival_information'));
+        add_action('init', array($this, 'export_contracts'));
 
+        wp_register_style('stats_ui_css', plugin_dir_url(__FILE__) . 'css/stats_ui.css');
+        wp_enqueue_style( 'stats_ui_css' );
         add_action('admin_menu', array($this,'top_submenu'));
-        add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
+
     }
-    
-    public function my_scripts()
-    {
-        wp_enqueue_style( 'stats', plugin_dir_url( __FILE__ ) . 'css/stats.css' );
-    }
+
 
     public function top_submenu() 
     {
@@ -42,30 +41,35 @@ class ConfStats
         ?>
         <div class="wrap">
             <h2>Conference Статитстика</h2>
-            <form method="post" action="" name="users" class="stats_form">
-                <input type="submit" name="export_users" value="Скачать пользователей">
-            </form>
-            <form method="post" action="" name="applications" class="stats_form">
-                <input type="submit" name="export_applications" value="Скачать заявки">
-            </form>
-            <form method="post" action="" name="reports" class="stats_form">
-                <input type="submit" name="export_reports" value="Скачать доклады">
-            </form>
-            <form method="post" action="" name="couathors" class="stats_form">
-                <input type="submit" name="export_coauthors" value="Скачать соавторов">
-            </form>
-            <form method="post" action="" name="expert_opinion" class="stats_form">
-                <input type="submit" name="export_expert_opinions" value="Скачать экспертные заключения">
-            </form>
-            <form method="post" action="" name="identification_acts" class="stats_form">
-                <input type="submit" name="export_identification_acts" value="Скачать акты идентификационной экспертизы">
-            </form>
-            <form method="post" action="" name="consents" class="stats_form">
-                <input type="submit" name="export_consents" value="Скачать согласия на обработку персональных данных">
-            </form>
-            <form method="post" action="" name="arrival_information" class="stats_form">
-                <input type="submit" name="export_arrival_information" value="Скачать информацию о прибытии">
-            </form>
+            <div class="forms_container">
+                <form method="post" action="" name="users" class="stats_form">
+                    <input type="submit" name="export_users" value="Скачать пользователей" class="submit-btn">
+                </form>
+                <form method="post" action="" name="applications" class="stats_form">
+                    <input type="submit" name="export_applications" value="Скачать заявки" class="submit-btn">
+                </form>
+                <form method="post" action="" name="reports" class="stats_form">
+                    <input type="submit" name="export_reports" value="Скачать доклады" class="submit-btn">
+                </form>
+                <form method="post" action="" name="couathors" class="stats_form">
+                    <input type="submit" name="export_coauthors" value="Скачать соавторов" class="submit-btn">
+                </form>
+                <form method="post" action="" name="expert_opinion" class="stats_form">
+                    <input type="submit" name="export_expert_opinions" value="Скачать экспертные заключения" class="submit-btn">
+                </form>
+                <form method="post" action="" name="identification_acts" class="stats_form">
+                    <input type="submit" name="export_identification_acts" value="Скачать акты идентификационной экспертизы" class="submit-btn">
+                </form>
+                <form method="post" action="" name="consents" class="stats_form">
+                    <input type="submit" name="export_consents" value="Скачать согласия на обработку персональных данных" class="submit-btn">
+                </form>
+                <form method="post" action="" name="arrival_information" class="stats_form">
+                    <input type="submit" name="export_arrival_information" value="Скачать информацию о прибытии" class="submit-btn">
+                </form>
+                <form method="post" action="" name="contracts" class="stats_form">
+                    <input type="submit" name="export_contracts" value="Скачать заполненные договоры" class="submit-btn">
+                </form>
+            </div>
         </div> 
         <?php
     }

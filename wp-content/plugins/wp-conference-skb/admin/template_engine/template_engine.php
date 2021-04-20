@@ -10,16 +10,11 @@ class ConfTemplateEngine
         add_action('init', array($this, 'upload_template'));
         add_action('admin_menu', array($this,'top_submenu'));
         add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
-        
-    }
-
-
-    public function my_scripts() 
-    {
         wp_register_style( 'template_engine_ui_css', plugin_dir_url(__FILE__) . '/css/template_engine_ui.css' );
         wp_enqueue_style( 'template_engine_ui_css');
         wp_enqueue_script( 'template_engine_ui_js'. plugin_dir_url( __FILE__ ) . 'js/template_engine_ui.js');
     }
+
 
 
     public function top_submenu() 
