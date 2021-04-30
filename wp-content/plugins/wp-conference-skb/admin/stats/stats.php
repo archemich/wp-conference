@@ -133,20 +133,20 @@ class ConfStats
                 $postmeta = get_post_meta($application->id);
                 $active_sheet->setCellValue('A'.$row_index, $user->last_name);
                 $active_sheet->setCellValue('B'.$row_index, $user->first_name);
-                $active_sheet->setCellValue('C'.$row_index, $postmeta['otchestvo'][0]);
-                $active_sheet->setCellValue('D'.$row_index, $postmeta['data_rozhdenia'][0]);
-                $active_sheet->setCellValue('E'.$row_index, $postmeta['gorod'][0]);
-                $active_sheet->setCellValue('F'.$row_index, $postmeta['organizaciya'][0]);
-                $active_sheet->setCellValue('G'.$row_index, $postmeta['organizaciya_abbreviatura'][0]);
-                $active_sheet->setCellValue('H'.$row_index, $postmeta['dolzhnost'][0]);
-                $active_sheet->setCellValue('I'.$row_index, $postmeta['uchenaya_stepen'][0]);
-                $active_sheet->setCellValue('J'.$row_index, $postmeta['uchenoe_zvanie'][0]);
-                $active_sheet->setCellValue('K'.$row_index, $postmeta['telephon_rabochiy'][0]);
-                $active_sheet->setCellValue('L'.$row_index, $postmeta['telephon_conferencia'][0]);
-                $active_sheet->setCellValue('M'.$row_index, $postmeta['email'][0]);
-                $active_sheet->setCellValue('N'.$row_index, $postmeta['forma_uchastia'][0]);
-                $active_sheet->setCellValue('O'.$row_index, $postmeta['pechatnoe_izdanie'][0]);
-                $active_sheet->setCellValue('P'.$row_index, $postmeta['soglashenie'][0]);
+                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['otchestvo'][0])) ? $postmeta['otchestvo'][0] : '';
+                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_rozhdenia'][0])) ? $postmeta['data_rozhdenia'][0] : '';
+                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['gorod'][0])) ? $postmeta['gorod'][0] : '';
+                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['organizaciya'][0])) ? $postmeta['organizaciya'][0] : '';
+                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['organizaciya_abbreviatura'][0])) ? $postmeta['organizaciya_abbreviatura'][0] : '';
+                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['dolzhnost'][0])) ? $postmeta['dolzhnost'][0] : '';
+                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['uchenaya_stepen'][0])) ? $postmeta['uchenaya_stepen'][0] : '';
+                $active_sheet->setCellValue('J'.$row_index, isset($postmeta['uchenoe_zvanie'][0])) ? $postmeta['uchenoe_zvanie'][0] : '';
+                $active_sheet->setCellValue('K'.$row_index, isset($postmeta['telephon_rabochiy'][0])) ? $postmeta['telephon_rabochiy'][0] : '';
+                $active_sheet->setCellValue('L'.$row_index, isset($postmeta['telephon_conferencia'][0])) ? $postmeta['telephon_conferencia'][0] : '';
+                $active_sheet->setCellValue('M'.$row_index, isset($postmeta['email'][0])) ? $postmeta['email'][0] : '';
+                $active_sheet->setCellValue('N'.$row_index, isset($postmeta['forma_uchastia'][0])) ? $postmeta['forma_uchastia'][0] : '';
+                $active_sheet->setCellValue('O'.$row_index, isset($postmeta['pechatnoe_izdanie'][0])) ? $postmeta['pechatnoe_izdanie'][0] : '';
+                $active_sheet->setCellValue('P'.$row_index, isset($postmeta['soglashenie'][0])) ? $postmeta['soglashenie'][0] : '';
                 $row_index++;
                 }
 

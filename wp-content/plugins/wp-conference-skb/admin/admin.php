@@ -2,7 +2,6 @@
 class ConfAdmin
 {
     public $confHelper = null;
-    public $confSettings = null;
     public $confStats = null;
     public $confTemplateEngine = null;
 
@@ -50,9 +49,6 @@ class ConfAdmin
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/template_engine/template_engine.php');
         $this->confTemplateEngine = new ConfTemplateEngine();
-
-        require_once(CONFERENCE__PLUGIN_DIR . 'admin/settings/settings.php');
-        $this->confSettings = new ConfSettings();
 
         require_once(CONFERENCE__PLUGIN_DIR . 'admin/helper/helper.php');
         $this->confHelper = new ConfHelper();

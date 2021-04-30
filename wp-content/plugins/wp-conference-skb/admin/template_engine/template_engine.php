@@ -9,7 +9,6 @@ class ConfTemplateEngine
         add_action('init', array($this, 'generate_invitation_for_user'));
         add_action('init', array($this, 'upload_template'));
         add_action('admin_menu', array($this,'top_submenu'));
-        add_action('wp_enqueue_scripts', array($this, 'my_scripts'));
         wp_register_style( 'template_engine_ui_css', plugin_dir_url(__FILE__) . '/css/template_engine_ui.css' );
         wp_enqueue_style( 'template_engine_ui_css');
         wp_enqueue_script( 'template_engine_ui_js'. plugin_dir_url( __FILE__ ) . 'js/template_engine_ui.js');
@@ -132,6 +131,7 @@ class ConfTemplateEngine
             if(isset($_POST['username'])) $templateProcessor->setValue('name', $_POST['username']);
             if(isset($_POST['initials'])) $templateProcessor->setValue('initials', $_POST['initials']);
             if(isset($_POST['conference'])) $templateProcessor->setValue('conference', $_POST['conference']);
+            if(isset($_POST['subject'])) $templateProcessor->setValue('subject', $_POST['subject']);
             if(isset($_POST['report_name'])) $templateProcessor->setValue('report_name', $_POST['report_name']);
 
             header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
