@@ -155,7 +155,7 @@ class ConfTemplateEngine
 
     public static function generate_invitation($name = null, $initials = null, $conference = null, $subject = null, $report_name = null)
     {
-            $templateProcessor = new TemplateProcessor(dirname(__FILE__).'/Template.docx');
+            $templateProcessor = new TemplateProcessor(dirname(__FILE__).'/template.docx');
             isset($name) ?? $templateProcessor->setValue('name', $name);
             isset($initials) ?? $templateProcessor->setValue('initials', $initials);
             isset($conference) ?? $templateProcessor->setValue('conference', $conference);

@@ -79,6 +79,14 @@ class ConfStats
     {
         if(isset($_POST['export_users'])){
             global $wpdb;
+            $tempdir = 'users';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $file = $tempdir_path.'/conf_users'.date('d-m-y').'.xlsx';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            
             $res = $wpdb->get_results("SELECT display_name, user_email FROM wp_users;");
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
@@ -92,11 +100,16 @@ class ConfStats
                 $row_index++;
             }
 
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment;filename="conf_users'.date('d-m-y').'.xlsx"');
-            header('Cache-Control: max-age=0');
-            $writer = IOFactory::createWriter($doc, 'Xlsx');
-            $writer->save('php://output');
+                $writer = IOFactory::createWriter($doc, 'Xlsx');
+                $writer->save($file);
+
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename=' . basename($file));
+                header('Content-Transfer-Encoding: binary');
+                header('Content-Length: ' . filesize($file));
+                @readfile($file);
+                @removeDir($tempdir_path);
         }
     }
 
@@ -105,6 +118,14 @@ class ConfStats
     {
         if(isset($_POST['export_applications']))
         {
+            $tempdir = 'applications';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $file = $tempdir_path.'/conf_applications'.date('d-m-y').'.xlsx';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+            
             global $wpdb;
             $applications = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "application";');
             $doc = new Spreadsheet();
@@ -131,30 +152,37 @@ class ConfStats
             foreach($applications as $application) {
                 $user = get_userdata($application->post_author);
                 $postmeta = get_post_meta($application->id);
+
                 $active_sheet->setCellValue('A'.$row_index, $user->last_name);
                 $active_sheet->setCellValue('B'.$row_index, $user->first_name);
-                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['otchestvo'][0])) ? $postmeta['otchestvo'][0] : '';
-                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_rozhdenia'][0])) ? $postmeta['data_rozhdenia'][0] : '';
-                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['gorod'][0])) ? $postmeta['gorod'][0] : '';
-                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['organizaciya'][0])) ? $postmeta['organizaciya'][0] : '';
-                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['organizaciya_abbreviatura'][0])) ? $postmeta['organizaciya_abbreviatura'][0] : '';
-                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['dolzhnost'][0])) ? $postmeta['dolzhnost'][0] : '';
-                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['uchenaya_stepen'][0])) ? $postmeta['uchenaya_stepen'][0] : '';
-                $active_sheet->setCellValue('J'.$row_index, isset($postmeta['uchenoe_zvanie'][0])) ? $postmeta['uchenoe_zvanie'][0] : '';
-                $active_sheet->setCellValue('K'.$row_index, isset($postmeta['telephon_rabochiy'][0])) ? $postmeta['telephon_rabochiy'][0] : '';
-                $active_sheet->setCellValue('L'.$row_index, isset($postmeta['telephon_conferencia'][0])) ? $postmeta['telephon_conferencia'][0] : '';
-                $active_sheet->setCellValue('M'.$row_index, isset($postmeta['email'][0])) ? $postmeta['email'][0] : '';
-                $active_sheet->setCellValue('N'.$row_index, isset($postmeta['forma_uchastia'][0])) ? $postmeta['forma_uchastia'][0] : '';
-                $active_sheet->setCellValue('O'.$row_index, isset($postmeta['pechatnoe_izdanie'][0])) ? $postmeta['pechatnoe_izdanie'][0] : '';
-                $active_sheet->setCellValue('P'.$row_index, isset($postmeta['soglashenie'][0])) ? $postmeta['soglashenie'][0] : '';
+                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['otchestvo'][0]) ? $postmeta['otchestvo'][0] : '');
+                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_rozhdenia'][0]) ? $postmeta['data_rozhdenia'][0] : '');
+                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['gorod'][0]) ? $postmeta['gorod'][0] : '');
+                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['organizaciya'][0]) ? $postmeta['organizaciya'][0] : '');
+                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['organizaciya_abbreviatura'][0]) ? $postmeta['organizaciya_abbreviatura'][0] : '');
+                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['dolzhnost'][0]) ? $postmeta['dolzhnost'][0] : '');
+                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['uchenaya_stepen'][0]) ? $postmeta['uchenaya_stepen'][0] : '');
+                $active_sheet->setCellValue('J'.$row_index, isset($postmeta['uchenoe_zvanie'][0]) ? $postmeta['uchenoe_zvanie'][0] : '');
+                $active_sheet->setCellValue('K'.$row_index, isset($postmeta['telephon_rabochiy'][0]) ? $postmeta['telephon_rabochiy'][0] : '');
+                $active_sheet->setCellValue('L'.$row_index, isset($postmeta['telephon_conferencia'][0]) ? $postmeta['telephon_conferencia'][0] : '');
+                $active_sheet->setCellValue('M'.$row_index, isset($postmeta['email'][0]) ? $postmeta['email'][0] : '');
+                $active_sheet->setCellValue('N'.$row_index, isset($postmeta['forma_uchastia'][0]) ? $postmeta['forma_uchastia'][0] : '');
+                $active_sheet->setCellValue('O'.$row_index, isset($postmeta['pechatnoe_izdanie'][0]) ? $postmeta['pechatnoe_izdanie'][0] : '');
+                $active_sheet->setCellValue('P'.$row_index, isset($postmeta['soglashenie'][0]) ? $postmeta['soglashenie'][0] : '');
                 $row_index++;
                 }
-
-                header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-                header('Content-Disposition: attachment;filename="conf_applications'.date('d-m-y').'.xlsx"');
-                header('Cache-Control: max-age=0');
+                
                 $writer = IOFactory::createWriter($doc, 'Xlsx');
-                $writer->save('php://output');
+                $writer->save($file);
+
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename=' . basename($file));
+                header('Content-Transfer-Encoding: binary');
+                header('Content-Length: ' . filesize($file));
+                @readfile($file);
+                @removeDir($tempdir_path);
+                
         }
     }
 
@@ -209,7 +237,7 @@ class ConfStats
                 $coauthors = substr($coauthors, 2);
                 
                 $post_category = wp_get_post_terms($report->id, 'subject')[0];
-                $filename =  $user->last_name.'_'. $user->first_name. '_'.$post_title . '_report';
+                $filename =  $user->last_name . '_' . $post_title . '_report';
                 $ext = pathinfo($doc_path)['extension'];
                 if (file_exists($doc_path)) {
                     copy($doc_path, $tempdir_path .'/' . $filename .'.'. $ext);
@@ -220,7 +248,7 @@ class ConfStats
                 }
                 $active_sheet->setCellValue('A'.$row_index, get_term($post_category->parent)->name);
                 $active_sheet->setCellValue('B'.$row_index, $post_category->name);
-                if(!empty($usermeta->first_name)) $active_sheet->setCellValue('C'.$row_index, $usermeta->last_name. ' '. $usermeta->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
+                if(!empty($user->first_name)) $active_sheet->setCellValue('C'.$row_index, $user->last_name. ' '. $user->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
                 else $active_sheet->setCellValue('C'.$row_index, $user->display_name);
                 $active_sheet->setCellValue('D'.$row_index, $coauthors ? $coauthors : "");
                 $active_sheet->setCellValue('E'.$row_index, $report->post_title);
@@ -239,10 +267,12 @@ class ConfStats
             $zip->addFile($tempdir_path.'/reports.xlsx','reports.xlsx');
             $zip->close();
 
-            header('Content-Type: application/zip');
-            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
-            header("Content-Disposition: attachment;filename=\"${zipname}\"");
-
+            
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $zipname);
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($tempdir_path.'/'.$zipname));
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -253,6 +283,14 @@ class ConfStats
     {
         if(isset($_POST['export_coauthors'])){
             global $wpdb;
+            $tempdir = 'couathors';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $file = $tempdir_path.'/conf_coauthors'.date('d-m-y').'.xlsx';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+
             $reports = $wpdb->get_results('SELECT id, post_author, post_title FROM wp_posts WHERE post_type = "report";');
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
@@ -286,12 +324,17 @@ class ConfStats
                     }
                 }
             }
-
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment;filename="conf_coauthors'.date('d-m-y').'.xlsx"');
-            header('Cache-Control: max-age=0');
+            
             $writer = IOFactory::createWriter($doc, 'Xlsx');
-            $writer->save('php://output');
+            $writer->save($file);
+
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($file));
+            @readfile($file);
+            @removeDir($tempdir_path);
         }
     }
 
@@ -317,16 +360,21 @@ class ConfStats
                 $user = get_userdata($opinion->post_author);
                 $filename =  $user->last_name.'_'. $user->first_name. '_экспертное_заключение';
                 $ext = pathinfo($pdf_path)['extension'];
-                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
-                    $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                if(file_exists($pdf_path)) {
+                    if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext))
+                    { 
+                        $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
+                    }
                 }
                 
             }
             $zip->close();
 
-            header('Content-Type: application/zip');
-            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
-            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $zipname);
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($tempdir_path.'/'.$zipname));
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -361,9 +409,11 @@ class ConfStats
             }
             $zip->close();
             
-            header('Content-Type: application/zip');
-            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
-            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $zipname);
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($tempdir_path.'/'.$zipname));
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -391,16 +441,18 @@ class ConfStats
                 $user = get_userdata($consent->post_author);
                 $filename =  $user->last_name.'_'. $user->first_name. '_согласие_на_обработку_персональных_данных';
                 $ext = pathinfo($pdf_path)['extension'];
-                if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
+                if(@copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
                     $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
                 }
                 
             }
             $zip->close();
             
-            header('Content-Type: application/zip');
-            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
-            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $zipname);
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($tempdir_path.'/'.$zipname));
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
@@ -411,7 +463,15 @@ class ConfStats
         if(isset($_POST['export_arrival_information']))
         {
 
-        global $wpdb;
+            global $wpdb;
+            $tempdir = 'arrival_information';
+            $tempdir_path = dirname(__FILE__) . '/'. $tempdir;
+            $file = $tempdir_path.'/conf_arrival_information'.date('d-m-y').'.xlsx';
+            if(is_dir($tempdir_path)) {
+                removeDir($tempdir_path);
+            }
+            @mkdir($tempdir_path);
+
             $arrival_informations = $wpdb->get_results('SELECT id, post_author FROM wp_posts WHERE post_type = "arrival_information";');
             $doc = new Spreadsheet();
             $active_sheet = $doc->getActiveSheet();
@@ -428,28 +488,35 @@ class ConfStats
             
             $row_index = 2;
             foreach($arrival_informations as $arrival_information) {
+                $post_title = get_post($arrival_information->id)->post_title;
                 $postmeta = get_post_meta($arrival_information->id);
                 $usermeta = get_user_meta($arrival_information->post_author);
-                if(!empty($usermeta->first_name)) $active_sheet->setCellValue('A'.$row_index, $usermeta->last_name. ' '. $usermeta->first_name . (isset($usermeta['otchestvo']) ? ' ' .$usermeta['otchestvo'][0] : ''));
+                if(!empty($post_title)) $active_sheet->setCellValue('A'.$row_index, $post_title);
                 else $active_sheet->setCellValue('A'.$row_index, $usermeta->display_name);
-                $active_sheet->setCellValue('B'.$row_index, isset($postmeta['priezd']) ? $postmeta['priezd'] : '');
-                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['gorod_priezda']) ? $postmeta[''] : 'gorod_priezda');
-                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_priezda']) ? $postmeta['data_priezda'] : '');
-                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['planiruemoe_vremya_priezda']) ? $postmeta['planiruemoe_vremya_priezda'] : '');
-                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['otezd']) ? $postmeta['otezd'] : '');
-                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['gorod_otezda']) ? $postmeta['gorod_otezda'] : '');
-                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['data_otezda']) ? $postmeta['data_otezda'] : '');
-                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['planiruemoe_vremya_otezda']) ? $postmeta['planiruemoe_vremya_otezda'] : '');
+                $active_sheet->setCellValue('B'.$row_index, isset($postmeta['priezd']) ? $postmeta['priezd'][0] : '');
+                $active_sheet->setCellValue('C'.$row_index, isset($postmeta['gorod_priezda']) ? $postmeta['gorod_priezda'][0] : '');
+                $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_priezda']) ? $postmeta['data_priezda'][0] : '');
+                $active_sheet->setCellValue('E'.$row_index, isset($postmeta['planiruemoe_vremya_priezda']) ? $postmeta['planiruemoe_vremya_priezda'][0] : '');
+                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['otezd']) ? $postmeta['otezd'][0] : '');
+                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['gorod_otezda']) ? $postmeta['gorod_otezda'][0] : '');
+                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['data_otezda']) ? $postmeta['data_otezda'][0]: '');
+                $active_sheet->setCellValue('I'.$row_index, isset($postmeta['planiruemoe_vremya_otezda']) ? $postmeta['planiruemoe_vremya_otezda'][0] : '');
 
                 $row_index++;
             }
             
 
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment;filename="conf_arrival_information'.date('d-m-y').'.xlsx"');
-            header('Cache-Control: max-age=0');
-            $writer = IOFactory::createWriter($doc, 'Xlsx');
-            $writer->save('php://output');
+                $writer = IOFactory::createWriter($doc, 'Xlsx');
+                $writer->save($file);
+
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename=' . basename($file));
+                header('Content-Transfer-Encoding: binary');
+                header('Content-Length: ' . filesize($file));
+                @readfile($file);
+                @removeDir($tempdir_path);
+                
         }
     }
 
@@ -482,9 +549,11 @@ class ConfStats
             }
             $zip->close();
             
-            header('Content-Type: application/zip');
-            header("Content-Length: ".filesize($tempdir_path.'/'.$zipname));
-            header("Content-Disposition: attachment;filename=\"${zipname}\"");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $zipname);
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($tempdir_path.'/'.$zipname));
             @readfile($tempdir_path.'/'.$zipname);
             @removeDir($tempdir_path);
         }
