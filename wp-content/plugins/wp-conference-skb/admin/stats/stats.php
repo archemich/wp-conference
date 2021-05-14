@@ -147,20 +147,22 @@ class ConfStats
             $active_sheet->setCellValue('N1', 'Форма участия');
             $active_sheet->setCellValue('O1', 'Хочет получить печатное издание');
             $active_sheet->setCellValue('P1', 'Ознакомлен с пользовательским соглашением');
-            
+            $active_sheet->setCellValue('Q1', 'Post Title');
             $row_index = 2;
             foreach($applications as $application) {
                 $user = get_userdata($application->post_author);
                 $postmeta = get_post_meta($application->id);
+                $userid = $user->ID;
+                $post_title = get_post($application->id)->post_title;
 
                 $active_sheet->setCellValue('A'.$row_index, $user->last_name);
                 $active_sheet->setCellValue('B'.$row_index, $user->first_name);
                 $active_sheet->setCellValue('C'.$row_index, isset($postmeta['otchestvo'][0]) ? $postmeta['otchestvo'][0] : '');
                 $active_sheet->setCellValue('D'.$row_index, isset($postmeta['data_rozhdenia'][0]) ? $postmeta['data_rozhdenia'][0] : '');
                 $active_sheet->setCellValue('E'.$row_index, isset($postmeta['gorod'][0]) ? $postmeta['gorod'][0] : '');
-                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['organizaciya'][0]) ? $postmeta['organizaciya'][0] : '');
-                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['organizaciya_abbreviatura'][0]) ? $postmeta['organizaciya_abbreviatura'][0] : '');
-                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['dolzhnost'][0]) ? $postmeta['dolzhnost'][0] : '');
+                $active_sheet->setCellValue('F'.$row_index, isset($postmeta['organizaciya'][0]) ? html_entity_decode($postmeta['organizaciya'][0]) : '');
+                $active_sheet->setCellValue('G'.$row_index, isset($postmeta['organizaciya_abbreviatura'][0]) ? html_entity_decode($postmeta['organizaciya_abbreviatura'][0]) : '');
+                $active_sheet->setCellValue('H'.$row_index, isset($postmeta['dolzhnost'][0]) ? html_entity_decode($postmeta['dolzhnost'][0]) : '');
                 $active_sheet->setCellValue('I'.$row_index, isset($postmeta['uchenaya_stepen'][0]) ? $postmeta['uchenaya_stepen'][0] : '');
                 $active_sheet->setCellValue('J'.$row_index, isset($postmeta['uchenoe_zvanie'][0]) ? $postmeta['uchenoe_zvanie'][0] : '');
                 $active_sheet->setCellValue('K'.$row_index, isset($postmeta['telephon_rabochiy'][0]) ? $postmeta['telephon_rabochiy'][0] : '');
@@ -169,6 +171,7 @@ class ConfStats
                 $active_sheet->setCellValue('N'.$row_index, isset($postmeta['forma_uchastia'][0]) ? $postmeta['forma_uchastia'][0] : '');
                 $active_sheet->setCellValue('O'.$row_index, isset($postmeta['pechatnoe_izdanie'][0]) ? $postmeta['pechatnoe_izdanie'][0] : '');
                 $active_sheet->setCellValue('P'.$row_index, isset($postmeta['soglashenie'][0]) ? $postmeta['soglashenie'][0] : '');
+                $active_sheet->setCellValue('Q'.$row_index, isset($post_title) ? $post_title : '');
                 $row_index++;
                 }
                 
@@ -314,8 +317,8 @@ class ConfStats
                         $active_sheet->setCellValue('B'.$row_index, $postmeta["imya_soavtor{$i}"][0]);
                         $active_sheet->setCellValue('C'.$row_index, $postmeta["otchestvo_soavtor{$i}"][0]);
                         $active_sheet->setCellValue('D'.$row_index, $postmeta["gorod_soavtor{$i}"][0]);
-                        $active_sheet->setCellValue('E'.$row_index, $postmeta["organizaciya_soavtor{$i}"][0]);
-                        $active_sheet->setCellValue('F'.$row_index, $postmeta["dolzhnost_soavtor{$i}"][0]);
+                        $active_sheet->setCellValue('E'.$row_index, html_entity_decode($postmeta["organizaciya_soavtor{$i}"][0]));
+                        $active_sheet->setCellValue('F'.$row_index, html_entity_decode($postmeta["dolzhnost_soavtor{$i}"][0]));
                         $active_sheet->setCellValue('G'.$row_index, $postmeta["uchenaya_stepen_soavtor{$i}"][0]);
                         $active_sheet->setCellValue('H'.$row_index, $postmeta["uchenoe_zvanie_soavtor{$i}"][0]);
                         $active_sheet->setCellValue('I'.$row_index, $postmeta["chlenstvo_ran_soavtor{$i}"][0]);
