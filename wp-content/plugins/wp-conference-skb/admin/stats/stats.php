@@ -227,7 +227,7 @@ class ConfStats
                 $usermeta = get_user_meta($user->ID);
             
                 $postmeta = get_post_meta($report->id);
-                $post_title = str_replace(' ','_',$report->post_title);
+                $post_title = implode('_', array_slice(explode(' ', $report->post_title), 0, 4));
                 $coauthors = "";
                 
                 for ($i = 1; $i < 3; $i++) {
@@ -358,7 +358,7 @@ class ConfStats
             foreach($opinions as $opinion) {
                 $pdf_path = wp_upload_dir()['basedir'] .'/'. $opinion->pdf_path;
                 $user = get_userdata($opinion->post_author);
-                $filename =  $user->last_name.'_'. $user->first_name. '_экспертное_заключение';
+                $filename =  $user->last_name.'_'. $user->first_name. '_эксп_зак';
                 $ext = pathinfo($pdf_path)['extension'];
                 if(file_exists($pdf_path)) {
                     if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext))
@@ -400,7 +400,7 @@ class ConfStats
             foreach($identification_acts as $identification_act) {
                 $pdf_path = wp_upload_dir()['basedir'] .'/'. $identification_act->pdf_path;
                 $user = get_userdata($identification_act->post_author);
-                $filename =  $user->last_name.'_'. $user->first_name. '_акт_индитефикационной_экспертизы';
+                $filename =  $user->last_name.'_'. $user->first_name. '_акт_инд_эксп';
                 $ext = pathinfo($pdf_path)['extension'];
                 if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
                     $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
@@ -439,7 +439,7 @@ class ConfStats
             foreach($consents as $consent) {
                 $pdf_path = wp_upload_dir()['basedir'] .'/'. $consent->pdf_path;
                 $user = get_userdata($consent->post_author);
-                $filename =  $user->last_name.'_'. $user->first_name. '_согласие_на_обработку_персональных_данных';
+                $filename =  $user->last_name.'_'. $user->first_name. '_согл_на_обр_пд';
                 $ext = pathinfo($pdf_path)['extension'];
                 if(@copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
                     $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
@@ -540,7 +540,7 @@ class ConfStats
             foreach($contracts as $contract) {
                 $pdf_path = wp_upload_dir()['basedir'] .'/'. $contract->pdf_path;
                 $user = get_userdata($contract->post_author);
-                $filename =  $user->last_name.'_'. $user->first_name. '_согласие_на_обработку_персональных_данных';
+                $filename =  $user->last_name.'_'. $user->first_name. '_договор';
                 $ext = pathinfo($pdf_path)['extension'];
                 if(copy($pdf_path, $tempdir_path .'/' . $filename .'.'. $ext)) {
                     $zip->addFile($tempdir_path.'/'.$filename.'.'.$ext, $filename.'.'.$ext);
